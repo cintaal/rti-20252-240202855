@@ -93,23 +93,26 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 > **Contoh domain TI:** "Deteksi anomali lalu-lintas jaringan menggunakan CNN — akurasi meningkat 94% vs baseline SVM 87%." Distorsi potensial: apakah dataset normal/anomali seimbang? Apakah hanya diuji pada satu vendor traffic?
 
 **Paper yang dipilih:**
-> Judul: _______________________________________________
-> Penulis (Tahun): ______________________________________
-> Sumber/Link DOI: _____________________________________
+> Judul: Klasifikasi Kualitas dan Kematangan Pisang Candevish Menggunakan Convolutional Neural Network
+> Penulis (Tahun): Hastungkoro, A.W,, Wicaksono, A.D.P., Rosita, Y.D. (2024) 
+> Sumber/Link DOI: Jurnal SAINTEKOM Vol. 14 No. 2 (2024) I DOI: https://doi.org/10.33020/saintekom.v14i2.686 
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | *Contoh: Kumpulkan log server 30 hari* | *Contoh: Hanya ambil jam sibuk* |
-| Data → Processing | | |
-| Processing → Analysis | | |
-| Analysis → Inference | | |
-| Inference → Knowledge | | |
+| Reality → Data | Mengambil foto pisang Cavendish langsung dari satu kebun di Kab. Banyumas sebanyak 400 gambar, dikategorikan ke 4 kelas ; Mentah Bagus, Mentah Buruk, Matang Bagus, Matang Buruk. | Hanya dari satu lokasi dan satu jenis pisang. Variasi cahaya, sudut foto, dan kondisi kebun tidak dikontrol secara eksplisit, sehingga data tidak representatif untuk kondisi nyata yang lebih beragam. |
+| Data → Processing | Preprocessing berupa augmentasi data (flip, rotasi, zoom) untuk menambah jumlah sampel, diikuti normalisasi nilai piksel RGB.  | Augmentasi dari dataset kecil (400 foto) berisiko menciptakan sampel yang terlalu mirip satu sama lain (data leakage antar split), sehingga model terlihat akurat padahal hanya 'menghapal' variasi yang sangat terbatas.  |
+| Processing → Analysis | Membangun 36 model CNN dengan variasi epoch (5, 10, 20), batch size (16, 32), dan split dataset (60:40, 70:30, 80:20, 90:10), lalu membandingkan akurasi antar skenario.  | Melaporkan hanya akurasi
+tertinggi (95%) dari skenario
+saling menguntungkan (split 90:10). Ini rawan cherry-picking, skenario lain yang menghasilkan akurasi lebih rendah tidak dijadikan kesimpulan utama.|
+| Analysis → Inference | Membangun 36 model CNN dengan variasi epoch (5, 10, 20), batch size (16, 32), dan split dataset (60:40, 70:30, 80:20, 90:10), lalu membandingkan akurasi antar skenario.| Tidak ada perbandingan dengan
+metode baseline (SVM, KNN, dsb). Klaim 'CNN efektif' lemah secara ilmiah tanpa tolok ukur komparatif - bisa jadi metode lebih sederhana pun menghasilkan akurasi serupa.|
+| Inference → Knowledge | Kesimpulan penelitian disebarkan lewat jurnal: 'CNN bisa mengklasifikasikan pisang dengan akurasi 95%'. | Klaim ini sebenarnya hanya berlaku untuk pisang dari kebun itu saja, dengan kondisi foto yang sama persis. Belum tentu berlaku di tempat lain - tapi pembaca bisa salah sangka itu berlaku secara umum. |
 
-**Distorsi paling besar di tahap:** ________________________
+**Distorsi paling besar di tahap:** Analysis → Inference 
 
 **Dua distorsi spesifik yang teridentifikasi:**
-1. ___________________________________________________
-2. ___________________________________________________
+1. Dataset terlalu sempit (satu lokasi, 400 foto): Seperti kita menilai semua masakan Padang hanya dari satu warung. Hasilnya tidak bisa dianggap mewakili kenyataan yang lebih luas.
+2. Cherry-picking skenario terbaik: Peneliti memilih hasil dengan split 90:10 (data uji cuma 40 foto) sebagai kesimpulan utama, padahal skenario lain hasilnya lebih rendah. Ini membuat klaim terlihat lebih kuat dari sebenarnya.
 
 ---
 
@@ -119,29 +122,31 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Perspektif | Analisis |
 |------------|---------|
-| Kejujuran ilmiah | *Contoh: Laporkan kedua versi (dengan dan tanpa outlier)* |
-| Transparansi | |
-| Peer review | |
+| Kejujuran ilmiah | Penghapusan data hanya dibenarkan apabila terdapat alasan metodologis yang jelas, misalnya data tersebut terbukti merupakan hasil kesalahan pengukuran atau kesalahan teknis. Menghapus data semata-mata agar hasil menjadi signifikan merupakan bentuk manipulasi yang melanggar prinsip kejujuran ilmiah. Peneliti seharusnya melaporkan kedua versi hasil: dengan dan tanpa outlier. |
+| Transparansi | Peneliti wajib mendokumentasikan secara terbuka proses identifikasi outlier, alasan penghapusannya, serta dampaknya terhadap hasil. Tanpa dokumentasi ini, pembaca dan reviewer tidak memiliki informasi yang cukup untuk menilai validitas penelitian secara mandiri, yang merupakan pelanggaran terhadap prinsip reproducibility. |
+| Peer review | Reviewer bertanggung jawab untuk mempertanyakan justifikasi penghapusan outlier. Apakah alasannya bersifat statistik (misalnya nilai di luar tiga standar deviasi) atau berbasis domain keilmuan? Apabila alasan yang diberikan tidak memadai, reviewer seharusnya meminta peneliti menyertakan analisis sensitivitas sebagai bahan evaluasi tambahan. |
 
 **Keputusan akhir dan justifikasi:**
-> ___________________________________________________
+>  Data outlier tidak boleh dihapus dengan tujuan utama untuk menghasilkan temuan yang signifikan. Tindakan tersebut termasuk dalam kategori p-hacking, yaitu praktik memanipulasi data atau analisis hingga diperoleh nilai yang diinginkan, yang merupakan pelanggaran serius terhadap etika penelitian. Keputusan yang tepat adalah melaporkan hasil dengan seluruh data sebagai temuan utama, menyertakan analisis tambahan tanpa outlier sebagai perbandingan, dan mendiskusikan kemungkinan penyebab munculnya outlier tersebut. Perlu diingat bahwa hasil yang tidak signifikan tetap merupakan kontribusi ilmiah yang valid.
 
 ---
 
 ## Latihan 3 — Posisi Paradigma
 
-**Topik riset:** ________________________________________
+**Topik riset:** Klasifikasi kualitas buah menggunakan deep learning (CNN) 
 
 > **Skala 1–5:** 1 = tidak sesuai sama sekali dengan topik ini, 5 = sangat sesuai dan dominan digunakan pada riset bertopik serupa.
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian dengan topik (1–5) | *Contoh: 4 — topik kuantitatif, cocok uji hipotesis* | *Contoh: 2 — topik tidak studi makna/konteks* | *Contoh: 5 — membangun artefak untuk uji klaim* |
-| Jenis data yang dikumpulkan | *Metrik numerik, log eksperimen* | *Wawancara, observasi kualitatif* | *Hasil uji artefak, komparasi kinerja* |
-| Limitasi paradigma | | | |
+| Kesesuaian dengan topik (1–5) | 5 - Sangat sesuai. Penelitian ini bersifat kuantitatif dan terukur (akurasi, presisi, recall), serta bertujuan menguji apakah suatu metode lebih unggul dibanding yang lain melalui eksperimen terkontrol. | 1 - Tidak sesuai. Paradigma Interpretivis digunakan untuk memahami makna dan pengalaman manusia secara kualitatif, bukan untuk mengukur kinerja model komputasi. | 4 - Sesuai. Penelitian ini membangun model CNN sebagai artefak untuk membuktikan proposisi tertentu, yang merupakan inti pendekatan Design Science Research. |
+| Jenis data yang dikumpulkan | Data numerik berupa metrik evaluasi: akurasi, presisi, recall, dan F1-score yang dapat diukur dan dibandingkan secara objektif. | Wawancara,
+observasi kualitatif, dan catatan lapangan. Jenis data ini tidak digunakan dalam penelitian ini. | Hasil pengujian 36
+skenario model, perbandingan konfigurasi parameter, dan evaluasi kinerja artefak terhadap data nyata. |
+| Limitasi paradigma | Hanya mengukur bahwa CNN bekerja, tanpa menjelaskan mengapa. Juga tidak mempertimbangkan konteks implementasi di lapangan secara nyata. | Tidak menghasilkan metrik yang dapat dibandingkan secara kuantitatif. Tidak cocok untuk penelitian yang berfokus pada klaim performa.| Terdapat risiko peneliti terlalu berfokus pada pembangunan sistem (orientasi engineering) sehingga melupakan kewajiban menghasilkan pengetahuan baru yang dapat difalsifikasi. |
 
-**Paradigma yang dipilih:** _____________________________
-**Alasan:** ____________________________________________
+**Paradigma yang dipilih:** Positivis (dominan) + Design Science Research (Komplementer) 
+**Alasan:** Penelitian ini pada dasarnya bertujuan mengukur dan membandingkan kinerja metode secara kuantitatif, sehingga paradigma Positivis menjadi landasan utama. Design Science Research berperan secara komplementer karena penelitian ini juga membangun artefak berupa model CNN sebagai instrumen untuk menghasilkan pengetahuan - bukan sekadar mengembangkan sistem yang berfungsi. 
 
 ---
 
@@ -150,5 +155,9 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 > Sebelum membaca materi ini, apakah pernah mempertanyakan klaim "95% akurat"? Setelah memahami rantai distorsi, pertanyaan apa yang sekarang akan diajukan saat membaca paper?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Sebelumnya, klaim dengan angka akurasi tinggi cenderung langsung diterima tanpa mempertanyakan asal-usul data, ukuran sampel, atau keberadaan metode pembanding. Angka yang tinggi terasa sudah cukup meyakinkan sebagai bukti keberhasilan suatu metode. 
+> Pertanyaan yang sekarang akan diajukan saat membaca paper: 
+> 1. Dari mana data berasal dan seberapa beragam kondisinya? Apabila data hanya dikumpulkan dari satu lokasi dengan kondisi seragam,angka akurasi yang tinggi belum tentu mencerminkan kemampuan model secara umum.
+> 2. Apakah hasil yang dilaporkan merupakan hasil terbaik dari banyak percobaan? Jika ya, apakah seluruh hasil percobaan juga dilaporkan secara transparan, atau hanya skenario yang paling menguntungkan yang ditonjolkan?
+> 3. Metode apa yang digunakan sebagai pembanding? Tanpa metode baseline, klaim bahwa suatu metode 'meningkatkan performa' tidak dapat diverifikasi secara objektif. 
+> 4. Apakah eksperimen ini dapat direplikasi oleh peneliti lain dengan data yang berbeda? Apabila tidak, maka temuan tersebut belum dapat dianggap sebagai pengetahuan yang berlaku secara luas.
