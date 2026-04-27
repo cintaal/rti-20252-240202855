@@ -101,10 +101,8 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 |-------|-------------------|-----------------|
 | Reality → Data | Mengambil foto pisang Cavendish langsung dari satu kebun di Kab. Banyumas sebanyak 400 gambar, dikategorikan ke 4 kelas ; Mentah Bagus, Mentah Buruk, Matang Bagus, Matang Buruk. | Hanya dari satu lokasi dan satu jenis pisang. Variasi cahaya, sudut foto, dan kondisi kebun tidak dikontrol secara eksplisit, sehingga data tidak representatif untuk kondisi nyata yang lebih beragam. |
 | Data → Processing | Preprocessing berupa augmentasi data (flip, rotasi, zoom) untuk menambah jumlah sampel, diikuti normalisasi nilai piksel RGB.  | Augmentasi dari dataset kecil (400 foto) berisiko menciptakan sampel yang terlalu mirip satu sama lain (data leakage antar split), sehingga model terlihat akurat padahal hanya 'menghapal' variasi yang sangat terbatas.|
-| Processing → Analysis | Membangun 36 model CNN dengan variasi epoch (5, 10, 20), batch size (16, 32), dan split dataset (60:40,70:30, 80:20, 90:10), lalu membandingkan akurasi antar skenario.  | Melaporkan hanya akurasi tertinggi (95%) dari skenario
-saling menguntungkan (split 90:10). Ini rawan cherry-picking, skenario lain yang menghasilkan akurasi lebih rendah tidak dijadikan kesimpulan utama.|
-| Analysis → Inference | Membangun 36 model CNN dengan variasi epoch (5, 10, 20), batch size (16, 32), dan split dataset (60:40, 70:30, 80:20, 90:10), lalu membandingkan akurasi antar skenario.| Tidak ada perbandingan dengan
-metode baseline (SVM, KNN, dsb). Klaim 'CNN efektif' lemah secara ilmiah tanpa tolok ukur komparatif - bisa jadi metode lebih sederhana pun menghasilkan akurasi serupa.|
+| Processing → Analysis | Membangun 36 model CNN dengan variasi epoch (5, 10, 20), batch size (16, 32), dan split dataset (60:40,70:30, 80:20, 90:10), lalu membandingkan akurasi antar skenario. | Melaporkan hanya akurasi tertinggi (95%) dari skenario saling menguntungkan (split 90:10). Ini rawan cherry-picking, skenario lain yang menghasilkan akurasi lebih rendah tidak dijadikan kesimpulan utama. |
+| Analysis → Inference | Membangun 36 model CNN dengan variasi epoch (5, 10, 20), batch size (16, 32), dan split dataset (60:40, 70:30, 80:20, 90:10), lalu membandingkan akurasi antar skenario.| Tidak ada perbandingan dengan metode baseline (SVM, KNN, dsb). Klaim 'CNN efektif' lemah secara ilmiah tanpa tolok ukur komparatif - bisa jadi metode lebih sederhana pun menghasilkan akurasi serupa.|
 | Inference → Knowledge | Kesimpulan penelitian disebarkan lewat jurnal: 'CNN bisa mengklasifikasikan pisang dengan akurasi 95%'. | Klaim ini sebenarnya hanya berlaku untuk pisang dari kebun itu saja, dengan kondisi foto yang sama persis. Belum tentu berlaku di tempat lain - tapi pembaca bisa salah sangka itu berlaku secara umum. |
 
 **Distorsi paling besar di tahap:** Analysis → Inference 
@@ -139,12 +137,11 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
 | Kesesuaian dengan topik (1–5) | 5 - Sangat sesuai. Penelitian ini bersifat kuantitatif dan terukur (akurasi, presisi, recall), serta bertujuan menguji apakah suatu metode lebih unggul dibanding yang lain melalui eksperimen terkontrol. | 1 - Tidak sesuai. Paradigma Interpretivis digunakan untuk memahami makna dan pengalaman manusia secara kualitatif, bukan untuk mengukur kinerja model komputasi. | 4 - Sesuai. Penelitian ini membangun model CNN sebagai artefak untuk membuktikan proposisi tertentu, yang merupakan inti pendekatan Design Science Research. |
-| Jenis data yang dikumpulkan | Data numerik berupa metrik evaluasi: akurasi, presisi, recall, dan F1-score yang dapat diukur dan dibandingkan secara objektif. | Wawancara,
-observasi kualitatif, dan catatan lapangan. Jenis data ini tidak digunakan dalam penelitian ini. | Hasil pengujian 36
-skenario model, perbandingan konfigurasi parameter, dan evaluasi kinerja artefak terhadap data nyata. |
+| Jenis data yang dikumpulkan | Data numerik berupa metrik evaluasi: akurasi, presisi, recall, dan F1-score yang dapat diukur dan dibandingkan secara objektif. | Wawancara, observasi kualitatif, dan catatan lapangan. Jenis data ini tidak digunakan dalam penelitian ini. | Hasil pengujian 36 skenario model, perbandingan konfigurasi parameter, dan evaluasi kinerja artefak terhadap data nyata. |
 | Limitasi paradigma | Hanya mengukur bahwa CNN bekerja, tanpa menjelaskan mengapa. Juga tidak mempertimbangkan konteks implementasi di lapangan secara nyata. | Tidak menghasilkan metrik yang dapat dibandingkan secara kuantitatif. Tidak cocok untuk penelitian yang berfokus pada klaim performa.| Terdapat risiko peneliti terlalu berfokus pada pembangunan sistem (orientasi engineering) sehingga melupakan kewajiban menghasilkan pengetahuan baru yang dapat difalsifikasi. |
 
 **Paradigma yang dipilih:** Positivis (dominan) + Design Science Research (Komplementer) 
+
 **Alasan:** Penelitian ini pada dasarnya bertujuan mengukur dan membandingkan kinerja metode secara kuantitatif, sehingga paradigma Positivis menjadi landasan utama. Design Science Research berperan secara komplementer karena penelitian ini juga membangun artefak berupa model CNN sebagai instrumen untuk menghasilkan pengetahuan - bukan sekadar mengembangkan sistem yang berfungsi. 
 
 ---
