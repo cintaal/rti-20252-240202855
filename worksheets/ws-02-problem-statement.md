@@ -86,11 +86,11 @@ Fenomena → Problem
   Variabel yang terukur             : Perceived Ease of Use (PEOU), Perceived Usefulness (PU), Attitude Toward Use (AT), Behavioral Intention (BI), Actual Usage (AU)
 
 Problem Quality Check
-  [ ] Clarity — Apakah satu orang membaca akan paham?
-  [ ] Measurability — Apakah ada metrik kuantitatif?
-  [ ] Relevance — Apakah penting untuk domain?
-  [ ] Testability — Apakah bisa gagal?
-  [ ] Impact — Apakah ada kontribusi jika terjawab?
+  [✓] Clarity — Apakah satu orang membaca akan paham?
+  [✓] Measurability — Apakah ada metrik kuantitatif?
+  [✓] Relevance — Apakah penting untuk domain?
+  [✓] Testability — Apakah bisa gagal?
+  [✓] Impact — Apakah ada kontribusi jika terjawab?
 
 Problem Statement (1 paragraf):
  Penggunaan teknologi Artificial Intelligence (AI) dalam aplikasi pembelajaran bahasa seperti Duolingo semakin berkembang dan memberikan pengalaman belajar yang lebih adaptif dan personal. Namun, masih belum jelas sejauh mana teknologi AI tersebut mempengaruhi tingkat kepuasan pengguna. Oleh karena itu, diperlukan analisis yang terstruktur untuk mengukur pengaruh AI terhadap kepuasan pengguna dengan menggunakan model Technology Acceptance Model (TAM), melalui variabel perceived ease of use, perceived usefulness, attitude toward use, behavioral intention, dan actual usage, sehingga dapat memberikan pemahaman yang lebih jelas mengenai penerimaan teknologi AI dalam aplikasi pembelajaran.
@@ -102,7 +102,7 @@ Problem Statement (1 paragraf):
 
 Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Problem Formation Model.
 
-**Topik awal:** loT - Keamanan Transmisi Data pada Sistem Pemantauan KualitasUdara Berdaya Rendah
+**Topik awal:** Pemanfaatan Artificial Intelligence pada aplikasi pembelajaran bahasa
 
 | Tahap | Hasil |
 |-------|-------|
