@@ -67,23 +67,23 @@ Masalah riset yang layak harus memenuhi 5 kriteria:
 PROBLEM STATEMENT BUILDER
 
 Domain & Konteks
-  Domain   : ____________________
-  Konteks  : ____________________
+  Domain   :  Teknologi Informasi (Artificial Intelligence dalam pembelajaran digital) 
+  Konteks  : Penggunaan aplikasi Duolingo berbasis AI untuk pembelajaran bahasa
 
 System Context
-  Input       : ____________________
-  Process     : ____________________
-  Output      : ____________________
-  Outcome     : ____________________
-  Constraints : ____________________
-  Stakeholders: ____________________
+  Input       : Data interaksi pengguna, jawaban latihan, aktivitas belajar pengguna
+  Process     : AI memproses data untuk menyesuaikan materi, memberikan feedback, dan rekomendasi belajar
+  Output      : Materi pembelajaran yang dipersonalisasi, skor, dan evaluasi otomatis
+  Outcome     : Tingkat kepuasan pengguna dan efektivitas pembelajaran
+  Constraints : Jumlah responden terbatas (100 orang), metode hanya kuantitatif
+  Stakeholders: Pengguna Duolingo, pengembang aplikasi, peneliti
 
 Fenomena → Problem
-  Fenomena yang diamati             : ____________________
-  Gejala (symptom) yang terukur     : ____________________
-  Masalah yang didiagnosis          : ____________________
-  Masalah riset (researchable)      : ____________________
-  Variabel yang terukur             : ____________________
+  Fenomena yang diamati             : Penggunaan aplikasi Duolingo berbasis AI semakin meningkat dalam pembelajaran bahasa.
+  Gejala (symptom) yang terukur     : Tingkat penggunaan tidak selalu konsisten dan kepuasan pengguna bervariasi
+  Masalah yang didiagnosis          : Belum diketahui secara jelas pengaruh teknologi AI terhadap kepuasan pengguna
+  Masalah riset (researchable)      : Belum ada analisis terstruktur menggunakan model TAM untuk mengukur pengaruh AI terhadap kepuasan pengguna Duolingo
+  Variabel yang terukur             : Perceived Ease of Use (PEOU), Perceived Usefulness (PU), Attitude Toward Use (AT), Behavioral Intention (BI), Actual Usage (AU)
 
 Problem Quality Check
   [ ] Clarity — Apakah satu orang membaca akan paham?
@@ -93,7 +93,7 @@ Problem Quality Check
   [ ] Impact — Apakah ada kontribusi jika terjawab?
 
 Problem Statement (1 paragraf):
-  ____________________
+ Penggunaan teknologi Artificial Intelligence (AI) dalam aplikasi pembelajaran bahasa seperti Duolingo semakin berkembang dan memberikan pengalaman belajar yang lebih adaptif dan personal. Namun, masih belum jelas sejauh mana teknologi AI tersebut mempengaruhi tingkat kepuasan pengguna. Oleh karena itu, diperlukan analisis yang terstruktur untuk mengukur pengaruh AI terhadap kepuasan pengguna dengan menggunakan model Technology Acceptance Model (TAM), melalui variabel perceived ease of use, perceived usefulness, attitude toward use, behavioral intention, dan actual usage, sehingga dapat memberikan pemahaman yang lebih jelas mengenai penerimaan teknologi AI dalam aplikasi pembelajaran.
 ```
 
 ---
@@ -102,35 +102,40 @@ Problem Statement (1 paragraf):
 
 Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Problem Formation Model.
 
-**Topik awal:** ________________________________________
+**Topik awal:** loT - Keamanan Transmisi Data pada Sistem Pemantauan KualitasUdara Berdaya Rendah
 
 | Tahap | Hasil |
 |-------|-------|
-| Reality | *Contoh: Aplikasi e-commerce sering ditinggalkan saat checkout* |
-| Observed Issue (Symptom) | *Contoh: Bounce rate checkout 68%* |
-| Diagnosed Problem (Root Cause) | |
-| Researchable Problem | |
-| Measurable Variable | |
+| Reality | Banyak pengguna menggunakan aplikasi pembelajaran bahasa seperti Duolingo. |
+| Observed Issue (Symptom) | Tingkat penggunaan tidak konsisten dan kepuasan pengguna berbeda-beda. |
+| Diagnosed Problem (Root Cause) |Pengaruh fitur AI terhadap kepuasan pengguna belum diketahui secara pasti.|
+| Researchable Problem | Belum ada penelitian terstruktur yang mengukur pengaruh AI terhadap kepuasan pengguna menggunakan model TAM.|
+| Measurable Variable | PEOU, PU, AT, BI, AU. |
 
-**Apakah terjebak solution-first thinking?** [ ] Ya / [ ] Tidak
-> Jika ya, kembali ke tahap mana? ________________________
+**Apakah terjebak solution-first thinking?** [ ] Tidak
+> Masalah riset dirumuskan berdasarkan gap pengetahuan yang nyata (belum ada perbandingan empiris TLS 1.3 vs DTLS pada perangkat RAM ≤64KB), bukan dimulai dari keinginan mengimplementasikan teknologi tertentu. Proses formulasi mengikuti alur dari symptom - root cause - researchable problem secara sistematis.
 
 ---
 
 ## Latihan 2 — System Context Decomposition
 
-Gambarkan konteks sistem dari masalah riset di Latihan 1.
+Konteks sistem dari masalah riset di Latihan 1.
 
 | Komponen | Deskripsi |
 |----------|----------|
-| Input | *Contoh: Request HTTP dari browser pengguna* |
-| Process | |
-| Output | |
-| Outcome | |
-| Constraints | |
-| Stakeholders | |
+| Input | Data aktivitas pengguna, jawaban latihan. |
+| Process | AI mengolah data untuk personalisasi pembelajaran.|
+| Output | Materi yang disesuaikan, skor, feedback.|
+| Outcome |Kepuasan pengguna dan efektivitas belajar.|
+| Constraints | Jumlah responden terbatas, metode kuantitatif.|
+| Stakeholders | Pengguna, pengembang, peneliti.|
 
-**Komponen mana yang paling relevan dengan masalah riset?** _______________
+**Komponen mana yang paling relevan dengan masalah riset?**  Process dan Outcome.
+Komponen process menjadi paling relevan karena dalam penelitian ini yang dianalisis adalah bagaimana teknologi Artificial Intelligence (AI) bekerja dalam aplikasi Duolingo, seperti dalam menyesuaikan materi, memberikan umpan balik otomatis, dan mempersonalisasi pengalaman belajar pengguna. Proses inilah yang secara langsung memengaruhi persepsi pengguna terhadap kemudahan penggunaan (perceived ease of use) dan kegunaan (perceived usefulness).
+
+Sementara itu, komponen outcome juga sangat penting karena berkaitan langsung dengan hasil akhir yang ingin diketahui dalam penelitian, yaitu tingkat kepuasan pengguna. Outcome mencerminkan dampak dari proses yang terjadi, sehingga dapat digunakan untuk menilai apakah penerapan AI benar-benar memberikan manfaat dan meningkatkan pengalaman belajar pengguna.
+
+Dengan demikian, hubungan antara process dan outcome menjadi inti dari penelitian ini, karena proses AI dalam sistem akan menentukan hasil berupa kepuasan pengguna.
 
 ---
 
@@ -140,16 +145,16 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Clarity | *Contoh: 4 — cukup jelas tapi perlu spesifikasi dataset* | |
-| Measurability | | |
-| Relevance | | |
-| Testability | | |
-| Impact | | |
+| Clarity | 4 | Sudah jelas namun bisa dipersempit lagi|
+| Measurability | 5 | Menggunakan variabel yang bisa diukur |
+| Relevance | 5 | Sangat relevan dengan perkembangan AI |
+| Testability | 5 | Bisa diuji dengan data |
+| Impact | 4 | Memberikan kontribusi pada pengembangan aplikasi |
 
-**Skor total:** _____ / 25
+**Skor total:** 23 / 25
 
 **Problem statement versi final (1 paragraf):**
-> ___________________________________________________
+> Penggunaan teknologi Artificial Intelligence (AI) dalam aplikasi pembelajaran bahasa seperti Duolingo semakin berkembang dan memberikan pengalaman belajar yang lebih adaptif dan personal. Namun, masih belum jelas sejauh mana teknologi AI tersebut mempengaruhi tingkat kepuasan pengguna. Oleh karena itu, diperlukan analisis yang terstruktur untuk mengukur pengaruh AI terhadap kepuasan pengguna dengan menggunakan model Technology Acceptance Model (TAM), melalui variabel perceived ease of use, perceived usefulness, attitude toward use, behavioral intention, dan actual usage, sehingga dapat memberikan pemahaman yang lebih jelas mengenai penerimaan teknologi AI dalam aplikasi pembelajaran.
 > ___________________________________________________
 
 ---
@@ -159,5 +164,5 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 > Bandingkan "masalah" yang biasa ditemui saat coding (bug, error) dengan masalah riset. Apa perbedaan fundamental dalam cara mendefinisikan dan mendekati keduanya?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Masalah dalam coding biasanya berupa error atau bug yang harus segera diperbaiki agar sistem dapat berjalan dengan baik, sehingga fokusnya adalah pada penyelesaian masalah secara langsung.
+> Sedangkan masalah riset lebih berfokus pada memahami penyebab suatu fenomena dan membuktikannya secara ilmiah. Masalah riset harus dapat diukur, diuji, dan memiliki kontribusi terhadap pengetahuan, bukan hanya menyelesaikan masalah teknis.
