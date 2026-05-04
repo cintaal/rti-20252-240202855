@@ -67,34 +67,34 @@ Jika rantai ini tidak lengkap, RQ belum mature. Bi-directional: RQ yang tidak bi
 ```
 RQ-CONTRIBUTION-HYPOTHESIS
 
-Gap Statement  : ____________________
+Gap Statement  : Belum ada penelitian yang menggabungkan Artificial Intelligence dengan model TAM untuk mengukur kepuasan pengguna pada aplikasi pembelajaran bahasa seperti Duolingo
 
 Research Question:
-  Tipe         : [ ] Comparison  [ ] Improvement  [ ] Exploratory
-  Formulasi    : ____________________
-  Variabel IV  : ____________________
-  Variabel DV  : ____________________
-  Metrik       : ____________________
-  Dataset      : ____________________
-  Baseline     : ____________________
+  Tipe         : [✓] Exploratory
+  Formulasi    : Apakah perceived ease of use dan perceived usefulness dari teknologi AI pada aplikasi Duolingo berpengaruh signifikan terhadap kepuasan pengguna?
+  Variabel IV  : Perceived Ease of Use (PEOU), Perceived Usefulness (PU)
+  Variabel DV  : Kepuasan pengguna
+  Metrik       : Skor kuesioner (skala Likert), nilai regresi/signifikansi
+  Dataset      : Data kuesioner pengguna Duolingo (±100 responden)
+  Baseline     : Model TAM standar tanpa fokus AI
 
 Quality Check RQ:
-  [ ] Variabel spesifik
-  [ ] Metrik jelas
-  [ ] Baseline ada
-  [ ] Konteks disebutkan
-  [ ] Memerlukan eksperimen (bukan hanya survei literatur)
+  [✓] Variabel spesifik
+  [✓] Metrik jelas
+  [✓] Baseline ada
+  [✓] Konteks disebutkan
+  [✓] Memerlukan eksperimen (bukan hanya survei literatur)
 
 Contribution Statement:
-  Apa yang baru diketahui : ____________________
-  Jenis kontribusi        : [ ] Improvement  [ ] Comparison  [ ] Novel approach
-  Gap yang diisi          : ____________________
+  Apa yang baru diketahui : Pengaruh spesifik teknologi AI dalam meningkatkan kepuasan pengguna melalui variabel TAM
+  Jenis kontribusi        : [✓] Exploratory
+  Gap yang diisi          : Menggabungkan AI dan TAM dalam konteks aplikasi pembelajaran bahasa
 
 Hypothesis Pair:
-  H₀ : ____________________
-  H₁ : ____________________
-  Threshold              : ____________________
-  Justifikasi threshold  : ____________________
+  H₀ : Tidak terdapat pengaruh signifikan antara Perceived Ease of Use (PEOU) dan Perceived Usefulness (PU) terhadap kepuasan pengguna aplikasi Duolingo
+  H₁ : Terdapat pengaruh signifikan antara Perceived Ease of Use (PEOU) dan Perceived Usefulness (PU) terhadap kepuasan pengguna aplikasi Duolingo
+  Threshold              : 0.05
+  Justifikasi threshold  : Nilai 0.05 merupakan standar umum dalam penelitian kuantitatif untuk menentukan signifikansi statistik
 ```
 
 ---
@@ -103,25 +103,24 @@ Hypothesis Pair:
 
 Gunakan gap yang ditemukan di WS-03. Transformasikan menjadi Research Question.
 
-**Gap dari WS-03:** ____________________________________
+**Gap dari WS-03:** Belum ada penelitian yang menggabungkan AI + TAM + kepuasan pengguna dalam konteks aplikasi pembelajaran bahasa
 
 **RQ versi pertama (tulis bebas):**
-> ___________________________________________________
+> Bagaimana pengaruh AI terhadap kepuasan pengguna aplikasi pembelajaran bahasa?
 
 **Evaluasi RQ:**
 
 | Komponen | Ada? | Isi |
 |----------|------|-----|
-| Metode spesifik | *Contoh: Ya — CNN vs RF* | |
-| Metrik terukur | | |
-| Baseline | | |
-| Dataset/konteks | | |
+| Metode spesifik | -    | Belum ada                    |
+| Metrik terukur  | -    | Belum jelas                  |
+| Baseline        | -   | Belum ada                    |
+| Dataset/konteks | Ya   | Aplikasi pembelajaran bahasa |
 
-**Tipe RQ:** [ ] Comparison / [ ] Improvement / [ ] Exploratory
+**Tipe RQ:** [✓] Exploratory
 
 **RQ versi revisi (setelah evaluasi):**
-> ___________________________________________________
-
+> Apakah perceived ease of use dan perceived usefulness dari teknologi AI pada aplikasi Duolingo berpengaruh signifikan terhadap kepuasan pengguna berdasarkan model TAM?
 ---
 
 ## Latihan 2 — Hypothesis Pair
@@ -130,14 +129,15 @@ Rumuskan pasangan hipotesis dari RQ di Latihan 1.
 
 | Komponen | Isi |
 |----------|-----|
-| H₀ | *Contoh: Tidak ada perbedaan signifikan F1-Score antara CNN dan RF pada dataset CIC-MalMem-2022* |
-| H₁ | |
-| Metrik | |
-| Threshold | |
-| Justifikasi threshold | |
+| H₀ | Tidak terdapat pengaruh signifikan antara perceived ease of use dan perceived usefulness terhadap kepuasan pengguna aplikasi Duolingo |
+| H₁ | Terdapat pengaruh signifikan antara perceived ease of use dan perceived usefulness terhadap kepuasan pengguna aplikasi Duolingo |
+| Metrik | Nilai signifikansi (p-value), koefisien regresi |
+| Threshold | 0.05 |
+| Justifikasi threshold | Nilai 0.05 merupakan standar umum dalam penelitian kuantitatif untuk menentukan signifikansi statistik |
 
-**Apakah hipotesis ini falsifiable?** [ ] Ya / [ ] Tidak
-> Bagaimana cara membuktikannya salah? ___________________
+**Apakah hipotesis ini falsifiable?** Ya 
+
+> Bagaimana cara membuktikannya salah? Jika hasil analisis menunjukkan nilai p-value lebih besar dari 0.05, maka hipotesis alternatif ditolak dan H₀ diterima.
 
 ---
 
@@ -147,15 +147,16 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 | Tahap | Isi |
 |-------|-----|
-| RQ | *Contoh: Apakah CNN menghasilkan F1-Score lebih tinggi dari RF...* |
-| Variable (IV) | *Contoh: Jenis algoritma (CNN vs RF)* |
-| Variable (DV) | |
-| Metric | |
-| Data source | |
-| Analysis method | |
+| RQ    | Apakah perceived ease of use dan perceived usefulness berpengaruh terhadap kepuasan pengguna Duolingo |
+| Variable (IV)   | PEOU, PU                    |
+| Variable (DV)   | Kepuasan pengguna           |
+| Metric          | Skor Likert, nilai regresi  |
+| Data source     | Kuesioner pengguna Duolingo |
+| Analysis method | Regresi linear / analisis statistik  |
 
-**Apakah rantai lengkap?** [ ] Ya / [ ] Tidak
-> Jika tidak, tahap mana yang perlu direvisi? ______________
+**Apakah rantai lengkap?** Ya
+
+> Karena seluruh komponen dalam rantai operasionalisasi telah terpenuhi, yaitu Research Question (RQ), variabel independen (PEOU dan PU), variabel dependen (kepuasan pengguna), metrik yang digunakan (skala Likert dan analisis regresi), sumber data (kuesioner pengguna Duolingo), serta metode analisis (regresi statistik). Setiap komponen saling terhubung dan dapat digunakan untuk menguji hipotesis secara empiris.
 
 ---
 
@@ -163,6 +164,8 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 > Ambil satu judul skripsi/paper yang pernah dibaca. Coba ekstrak RQ-nya. Apakah RQ tersebut memenuhi semua komponen (metode, metrik, baseline, konteks)? Jika tidak, apa yang hilang?
 
-**Judul:** _____________________________________________
-**RQ yang diekstrak:** __________________________________
-**Komponen yang hilang:** _______________________________
+**Judul:** Pengaruh Teknologi Artificial Intelligence pada aplikasi Duolingo terhadap kepuasan pengguna
+
+**RQ yang diekstrak:** Apakah AI pada aplikasi Duolingo berpengaruh terhadap kepuasan pengguna?
+
+**Komponen yang hilang:** RQ tersebut belum menyebutkan metrik yang digunakan, metode analisis, serta baseline pembanding, sehingga perlu diperjelas agar dapat diuji secara ilmiah.
