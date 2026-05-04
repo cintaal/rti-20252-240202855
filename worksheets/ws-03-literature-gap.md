@@ -77,39 +77,41 @@ Membandingkan deep learning 2024 dengan decision tree sederhana tanpa justifikas
 ```
 LITERATURE MAPPING
 
-Topik      : ____________________
-Database   : ____________________
-Query      : ____________________
-Tahun      : ____________________
-Hasil awal : ____ paper → Screening → ____ paper final
+Topik      : Pengaruh Artificial Intelligence pada aplikasi pembelajaran bahasa terhadap kepuasan pengguna
+Database   : Google Scholar
+Query      : ("Artificial Intelligence" OR "AI") AND ("pembelajaran" OR "learning app") AND ("TAM" OR "kepuasan pengguna")
+Tahun      : 2020–2026
+Hasil awal : 30 paper → Screening → 5 paper final
 
 Literature Matrix (concept-centric):
 
 | Study | Tahun | Method | Data | Result | Limitation |
-|-------|-------|--------|------|--------|------------|
-|       |       |        |      |        |            |
+|Makaruku & Manuhutu|2026|TAM|Survey pengguna e-learning|PEOU & PU berpengaruh signifikan terhadap kepuasan|Tidak spesifik AI|
+|Agustina et al.|2024|TAM + TTF + ECM|Mahasiswa (85 responden)| AI meningkatkan kepuasan penggunaan| Fokus pada pemrograman, bukan bahasa|
+| Mulyanto et al. | 2024 | E-SERVQUAL | 360 responden | 5 variabel berpengaruh ke kepuasan | Tidak pakai TAM |
+| Tamtomo | 2024 | TAM | Mahasiswa pembelajar bahasa | AI (ChatGPT) dianggap bermanfaat | Tidak mengukur kepuasan secara spesifik |
+| Saninah et al. | 2024 | Naïve Bayes (Sentiment) | 2000 ulasan Duolingo | Mayoritas sentimen positif | Tidak pakai model TAM |
 
 Pola yang ditemukan:
-  Metode dominan     : ____________________
-  Dataset umum       : ____________________
-  Limitasi berulang  : ____________________
+  Metode dominan     : Technology Acceptance Model (TAM) dan analisis sentimen
+  Dataset umum       : Kuesioner pengguna dan data ulasan aplikasi
+  Limitasi berulang  : Tidak menggabungkan AI + kepuasan pengguna + konteks spesifik aplikasi pembelajaran bahasa
 
 GAP IDENTIFICATION
 
-Gap 1: [Jenis: performance / method / data / context]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
-
+Gap 1: [Jenis: method gap]
+  Deskripsi    : Belum banyak penelitian yang menggabungkan teknologi Artificial Intelligence dengan model TAM untuk mengukur kepuasan pengguna
+  Bukti        : Sebagian penelitian hanya menggunakan TAM tanpa fokus pada AI, sementara penelitian lain membahas AI tanpa menggunakan model TAM
+  Signifikansi : Menggabungkan AI dan TAM dapat memberikan analisis yang lebih komprehensif terhadap kepuasan pengguna
 Gap 2: [Jenis: ____]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
+  Deskripsi    : Penelitian belum secara spesifik dilakukan pada aplikasi pembelajaran bahasa seperti Duolingo
+  Bukti        : Studi yang ada lebih banyak dilakukan pada sistem umum, e-learning, atau aplikasi lain
+  Signifikansi : Konteks aplikasi pembelajaran bahasa memiliki karakteristik unik sehingga perlu diteliti secara khusus
 
 Baseline Selection:
 | Baseline | Relevansi | Representatif | Source |
-|----------|-----------|---------------|--------|
-|          |           |               |        |
+| TAM (Makaruku, 2026) | Mengukur kepuasan pengguna | Banyak digunakan dalam penelitian TI | Jurnal Indonesia 2026 |
+| Sentiment Analysis (Saninah, 2024) | Mengukur respon pengguna aplikasi | Umum digunakan dalam analisis aplikasi | Jurnal Indonesia 2024 |
 ```
 
 ---
@@ -123,20 +125,20 @@ Gunakan topik riset dari WS-02. Cari minimal 5 paper relevan menggunakan databas
 > - Tulis query Boolean yang digunakan: contoh `("object detection" OR "image classification") AND ("edge computing") NOT ("medical")`. Dokumentasikan query secara eksplisit.
 > - Akses gratis: buka Google Scholar → cari judul paper → klik [PDF] jika tersedia, atau akses lewat campus VPN
 
-**Topik riset:** ________________________________________
-**Query pencarian:** ____________________________________
-**Database:** ___________________________________________
+**Topik riset:** Pengaruh AI pada aplikasi pembelajaran bahasa terhadap kepuasan pengguna
+**Query pencarian:** ("AI" OR "Artificial Intelligence") AND ("pembelajaran") AND ("TAM" OR "kepuasan pengguna")
+**Database:** Google Scholar
 
 | # | Study | Tahun | Method | Dataset | Result | Limitasi |
 |---|-------|-------|--------|---------|--------|----------|
-| 1 | *Contoh: Rahman et al.* | *2023* | *CNN* | *ImageNet subset* | *Acc 91%* | *Hanya 3 kelas* |
-| 2 | | | | | | |
-| 3 | | | | | | |
-| 4 | | | | | | |
-| 5 | | | | | | |
+| 1 | Makaruku & Manuhutu | 2026  | TAM                | Survey        | PEOU & PU signifikan         | Tidak bahas AI       |
+| 2 | Agustina et al.     | 2024  | TAM+TTF+ECM        | Mahasiswa     | AI bantu pembelajaran        | Bukan bahasa         |
+| 3 | Mulyanto et al.     | 2024  | E-SERVQUAL         | 360 responden | Kepuasan dipengaruhi layanan | Tidak pakai TAM      |
+| 4 | Tamtomo             | 2024  | TAM                | Mahasiswa     | AI bermanfaat                | Tidak fokus kepuasan |
+| 5 | Saninah et al.      | 2024  | Sentiment Analysis | 2000 review   | Sentimen positif dominan     | Tidak pakai TAM|
 
-**Pola yang terlihat — Metode dominan:** ___________________
-**Limitasi yang berulang:** ______________________________
+**Pola yang terlihat — Metode dominan:** TAM dan analisis sentimen
+**Limitasi yang berulang:** Penelitian belum menggabungkan AI + TAM + kepuasan pengguna dalam satu studi
 
 ---
 
@@ -146,14 +148,14 @@ Berdasarkan tabel di Latihan 1, identifikasi gap.
 
 | Jenis Gap | Ditemukan? | Gap Statement |
 |-----------|-----------|---------------|
-| Performance Gap | [ ] Ya / [ ] Tidak | *Contoh: Akurasi turun di bawah 80% untuk kelas minoritas* |
-| Method Gap | [ ] Ya / [ ] Tidak | |
-| Data Gap | [ ] Ya / [ ] Tidak | |
-| Context Gap | [ ] Ya / [ ] Tidak | |
+| Performance Gap | Tidak | - |
+| Method Gap | Ya | Belum ada penelitian yang menggabungkan AI dan TAM untuk mengukur kepuasan pengguna |
+| Data Gap | Ya | Banyak penelitian hanya menggunakan survey tanpa data perilaku nyata |
+| Context Gap | Ya | Belum fokus pada aplikasi pembelajaran bahasa seperti Duolingo |
 
-**Gap utama yang dipilih:** _____________________________
+**Gap utama yang dipilih:** Method Gap + Context Gap
 **Mengapa gap ini penting (bukan sekadar "belum ada yang meneliti")?**
-> ___________________________________________________
+> Karena penelitian sebelumnya hanya membahas sebagian aspek (AI saja atau TAM saja), sehingga belum memberikan gambaran lengkap tentang bagaimana AI mempengaruhi kepuasan pengguna dalam konteks aplikasi pembelajaran bahasa secara spesifik.
 
 ---
 
@@ -163,11 +165,11 @@ Pilih 2 baseline dari literatur yang sudah dibaca.
 
 | # | Baseline | Mengapa Relevan | Mengapa Representatif | Apakah SOTA? | Sumber |
 |---|----------|----------------|----------------------|-------------|--------|
-| 1 | *Contoh: RF + TF-IDF* | *Task sama: klasifikasi teks* | *Dipakai 6 dari 10 paper* | *Bukan, tapi common practice* | *Lee et al., 2022* |
-| 2 | | | | | |
+| 1 | TAM (Makaruku, 2026)               | Sama-sama ukur kepuasan            | Banyak dipakai di penelitian TI | Tidak, tapi umum | 2026   |
+| 2 | Sentiment Analysis (Saninah, 2024) | Sama-sama analisis user experience | Banyak dipakai untuk aplikasi   | Tidak            | 2024   |
 
-**Apakah pemilihan baseline ini bisa dianggap straw man?** [ ] Ya / [ ] Tidak
-> Justifikasi: ________________________________________
+**Apakah pemilihan baseline ini bisa dianggap straw man?** Tidak
+> Justifikasi: Baseline berasal dari metode yang umum digunakan dalam penelitian kepuasan pengguna dan analisis aplikasi, sehingga perbandingan tetap adil.
 
 ---
 
@@ -176,5 +178,4 @@ Pilih 2 baseline dari literatur yang sudah dibaca.
 > Apa perbedaan antara "belum ada yang meneliti ini" (klaim tanpa bukti) dengan research gap yang valid? Bagaimana cara membuktikan bahwa sebuah gap benar-benar ada?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Pernyataan “belum ada yang meneliti” tidak cukup tanpa bukti. Research gap yang valid harus didukung oleh hasil penelusuran literatur yang menunjukkan adanya kekurangan atau keterbatasan penelitian sebelumnya. Cara membuktikannya adalah dengan melakukan pencarian sistematis, membandingkan beberapa jurnal, dan menunjukkan pola serta kekurangan yang konsisten dari penelitian yang ada.
