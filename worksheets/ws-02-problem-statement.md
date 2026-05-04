@@ -113,7 +113,6 @@ Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Pro
 | Measurable Variable | PEOU, PU, AT, BI, AU. |
 
 **Apakah terjebak solution-first thinking?** [ ] Tidak
-> Masalah riset dirumuskan berdasarkan gap pengetahuan yang nyata (belum ada perbandingan empiris TLS 1.3 vs DTLS pada perangkat RAM ≤64KB), bukan dimulai dari keinginan mengimplementasikan teknologi tertentu. Proses formulasi mengikuti alur dari symptom - root cause - researchable problem secara sistematis.
 
 ---
 
@@ -131,6 +130,7 @@ Konteks sistem dari masalah riset di Latihan 1.
 | Stakeholders | Pengguna, pengembang, peneliti.|
 
 **Komponen mana yang paling relevan dengan masalah riset?**  Process dan Outcome.
+
 Komponen process menjadi paling relevan karena dalam penelitian ini yang dianalisis adalah bagaimana teknologi Artificial Intelligence (AI) bekerja dalam aplikasi Duolingo, seperti dalam menyesuaikan materi, memberikan umpan balik otomatis, dan mempersonalisasi pengalaman belajar pengguna. Proses inilah yang secara langsung memengaruhi persepsi pengguna terhadap kemudahan penggunaan (perceived ease of use) dan kegunaan (perceived usefulness).
 
 Sementara itu, komponen outcome juga sangat penting karena berkaitan langsung dengan hasil akhir yang ingin diketahui dalam penelitian, yaitu tingkat kepuasan pengguna. Outcome mencerminkan dampak dari proses yang terjadi, sehingga dapat digunakan untuk menilai apakah penerapan AI benar-benar memberikan manfaat dan meningkatkan pengalaman belajar pengguna.
@@ -155,7 +155,6 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 
 **Problem statement versi final (1 paragraf):**
 > Penggunaan teknologi Artificial Intelligence (AI) dalam aplikasi pembelajaran bahasa seperti Duolingo semakin berkembang dan memberikan pengalaman belajar yang lebih adaptif dan personal. Namun, masih belum jelas sejauh mana teknologi AI tersebut mempengaruhi tingkat kepuasan pengguna. Oleh karena itu, diperlukan analisis yang terstruktur untuk mengukur pengaruh AI terhadap kepuasan pengguna dengan menggunakan model Technology Acceptance Model (TAM), melalui variabel perceived ease of use, perceived usefulness, attitude toward use, behavioral intention, dan actual usage, sehingga dapat memberikan pemahaman yang lebih jelas mengenai penerimaan teknologi AI dalam aplikasi pembelajaran.
-> ___________________________________________________
 
 ---
 
