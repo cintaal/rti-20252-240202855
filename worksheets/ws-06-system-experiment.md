@@ -80,25 +80,26 @@ Jika variabel tidak bisa di-map ke komponen apapun → arsitektur perlu didesain
 ```
 SYSTEM-EXPERIMENT MAPPING
 
-Research Question: ____________________
+Research Question: Apakah Perceived Ease of Use (PEOU) dan Perceived Usefulness (PU) dari teknologi AI pada aplikasi Duolingo berpengaruh signifikan terhadap kepuasan pengguna?
 
 Variable → Component Mapping:
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi/Pengukuran |
 |----------|------|-----------------|---------------------------|
-|          | IV   |                 |                           |
-|          | DV   |                 |                           |
-|          | CV   |                 |                           |
+| PEOU | IV | Modul kuesioner (indikator kemudahan) | Mengubah/menampilkan pertanyaan terkait kemudahan penggunaan |
+| PU | IV | Modul kuesioner (indikator manfaat) | Mengubah/menampilkan pertanyaan terkait kegunaan aplikasi |
+| Kepuasan pengguna | DV | Modul evaluasi hasil (scoring & analisis) | Menghitung skor Likert dan analisis regresi |
+| Lama penggunaan | CV | Input profil responden | Dikunci sebagai variabel kontrol dalam analisis |
 
 4 Prinsip Desain:
-  [ ] Traceability — Setiap komponen bisa ditelusuri ke variabel
-  [ ] Variable Isolation — IV bisa diubah tanpa mengubah CV
-  [ ] Measurement Integration — Pengukuran DV built-in
-  [ ] Reproducibility — Setup bisa direkonstruksi
+  [✓] Traceability — Setiap komponen bisa ditelusuri ke variabel
+  [✓] Variable Isolation — IV bisa diubah tanpa mengubah CV
+  [✓] Measurement Integration — Pengukuran DV built-in
+  [✓] Reproducibility — Setup bisa direkonstruksi
 
 Experimental Setup:
-  Input data     : ____________________
-  Parameter      : ____________________
-  Output format  : ____________________
+  Input data     : Data kuesioner pengguna Duolingo
+  Parameter      : Skala Likert (1-5), jumlah responden, variabel PEOU & PU
+  Output format  : Dataset (Excel/CSV) + hasil analisis statistik (regresi)
 ```
 
 ---
@@ -107,16 +108,17 @@ Experimental Setup:
 
 Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 
-**RQ:** __________________________________________________
+**RQ:** Apakah PEOU dan PU berpengaruh terhadap kepuasan pengguna Duolingo?
 
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi / Pengukuran |
 |----------|------|-----------------|---------------------------|
-| *Contoh: Jenis model* | *IV* | *Modul classifier (swap RF ↔ CNN)* | *Ganti config `model_type`* |
-| | DV | | |
-| | CV | | |
+| PEOU            | IV   | Modul pertanyaan kemudahan | Mengatur indikator pertanyaan |
+| PU              | IV   | Modul pertanyaan manfaat   | Mengatur indikator pertanyaan |
+| Kepuasan        | DV   | Modul scoring & analisis   | Menghitung skor Likert        |
+| Lama penggunaan | CV   | Data profil responden      | Dikontrol dalam analisis      |
 
-**Apakah semua variabel bisa di-map?** [ ] Ya / [ ] Tidak
-> Jika tidak, komponen apa yang perlu ditambahkan? _________
+**Apakah semua variabel bisa di-map?** Ya 
+> Semua variabel memiliki representasi dalam sistem, baik sebagai input (kuesioner), proses (analisis), maupun kontrol (profil responden).
 
 ---
 
@@ -126,14 +128,15 @@ Evaluasi desain sistem terhadap 4 prinsip.
 
 | Prinsip | Status | Bukti / Penjelasan |
 |---------|--------|-------------------|
-| Traceability | *Contoh: ✅ — setiap modul punya label variabel* | |
-| Modularity | | |
-| Controllability | | |
-| Measurability | | |
+| Traceability    | ✅      | Setiap variabel memiliki komponen sistem yang jelas |
+| Modularity      | ✅      | Modul kuesioner dan analisis terpisah               |
+| Controllability | ✅      | Variabel kontrol dipisahkan dalam data responden    |
+| Measurability   | ✅      | Sistem menghasilkan skor dan data siap analisis     |
 
-**Prinsip mana yang paling sulit dipenuhi?** _______________
+**Prinsip mana yang paling sulit dipenuhi?**  Controllability
+
 **Strategi untuk mengatasinya:**
-> ___________________________________________________
+> Menggunakan desain kuesioner yang jelas serta memastikan variabel kontrol (seperti pengalaman pengguna) dikumpulkan dan dipisahkan dalam proses analisis.
 
 ---
 
@@ -146,14 +149,15 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 
 | Kondisi | Komponen A | Komponen B | Komponen C | Hasil yang Diharapkan |
 |---------|-----------|-----------|-----------|----------------------|
-| Full | *Contoh: ✅ CNN* | *Contoh: ✅ Temporal features* | *Contoh: ✅ Z-score norm* | *Baseline penuh* |
-| – A | ❌ (ganti RF) | ✅ | ✅ | |
-| – B | ✅ | ❌ (tanpa temporal) | ✅ | |
-| – C | ✅ | ✅ | ❌ (tanpa normalisasi) | |
+| Full    | ✅ | ✅ | ✅ | Hasil lengkap pengaruh PEOU & PU |
+| – A     | ❌ | ✅ | ✅ | Mengetahui pengaruh PU saja      |
+| – B     | ✅ | ❌ | ✅ | Mengetahui pengaruh PEOU saja    |
+| – C     | ✅ | ✅ | ❌ | Tidak bisa mengukur kepuasan secara valid |
 
-**Komponen mana yang diprediksi paling berkontribusi?** _____
+**Komponen mana yang diprediksi paling berkontribusi?** PU (Perceived Usefulness)
+
 **Mengapa?**
-> ___________________________________________________
+> Karena dalam banyak penelitian TAM, persepsi kegunaan biasanya memiliki pengaruh lebih kuat terhadap kepuasan dibanding kemudahan penggunaan.
 
 ---
 
@@ -162,5 +166,4 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 > Apa risiko jika sistem dibangun seperti produk (monolitik, fitur lengkap) lalu baru dilakukan eksperimen? Mengapa arsitektur modular penting untuk riset?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Jika sistem dibangun seperti produk (monolitik), maka sulit untuk mengisolasi variabel penelitian karena semua komponen saling terhubung. Hal ini dapat menyebabkan bias dalam eksperimen dan sulit untuk menentukan faktor mana yang benar-benar mempengaruhi hasil. Arsitektur modular penting dalam riset karena memungkinkan setiap variabel diuji secara terpisah, sehingga hasil penelitian lebih valid dan dapat direproduksi.
