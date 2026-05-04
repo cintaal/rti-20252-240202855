@@ -66,19 +66,20 @@ Metrik harus ditentukan **sebelum** eksperimen. Memilih metrik setelah melihat d
 ```
 VARIABLE & METRIC DEFINITION
 
-Research Question: ____________________
+Research Question: Apakah Perceived Ease of Use (PEOU) dan Perceived Usefulness (PU) dari teknologi AI pada aplikasi Duolingo berpengaruh signifikan terhadap kepuasan pengguna?
 
 | Variabel | Tipe | Konsep | Metrik | Skala | Satuan | Cara Mengukur | Justifikasi |
 |----------|------|--------|--------|-------|--------|---------------|-------------|
-|          | IV   |        |        |       |        |               |             |
-|          | DV   |        |        |       |        |               |             |
-|          | CV   |        |        |       |        |               |             |
+| PEOU (Perceived Ease of Use) | IV | Persepsi kemudahan penggunaan | Skor kuesioner Likert (1-5) | Ordinal | Skor | Responden mengisi kuesioner terkait kemudahan penggunaan aplikasi | Mewakili persepsi kemudahan pengguna secara langsung |
+| PU (Perceived Usefulness) | IV | Persepsi kegunaan/manfaat | Skor kuesioner Likert (1-5) | Ordinal | Skor | Responden mengisi kuesioner terkait manfaat aplikasi | Mengukur sejauh mana aplikasi dianggap bermanfaat |
+| Kepuasan Pengguna | DV | Tingkat kepuasan pengguna | Skor kuesioner Likert (1-5) | Ordinal | Skor | Responden menilai kepuasan setelah menggunakan aplikasi | Langsung merepresentasikan outcome penelitian |
+| Pengalaman penggunaan aplikasi | CV | Pengalaman sebelumnya menggunakan aplikasi | Lama penggunaan (bulan) | Ratio | Bulan | Responden mengisi durasi penggunaan aplikasi | Mengontrol pengaruh pengalaman terhadap kepuasan |
 
 Alignment Check:
   RQ → Concept → Variable → Metric → Data → Result
-  [ ] Setiap langkah terdokumentasi
-  [ ] Tidak ada "lompatan logis"
-  [ ] Metrik mengukur apa yang dimaksud (construct validity)
+  [✓] Setiap langkah terdokumentasi
+  [✓] Tidak ada "lompatan logis"
+  [✓] Metrik mengukur apa yang dimaksud (construct validity)
 ```
 
 ---
@@ -87,16 +88,18 @@ Alignment Check:
 
 Gunakan RQ dari WS-04. Definisikan variabel dan metriknya.
 
-**RQ:** __________________________________________________
+**RQ:** Apakah PEOU dan PU berpengaruh terhadap kepuasan pengguna aplikasi Duolingo?
 
 | Variabel | Tipe | Konsep Abstrak | Metrik Konkret | Skala (NOIR) | Satuan |
 |----------|------|---------------|----------------|-------------|--------|
-| *Contoh: Jenis model* | *IV* | *Pendekatan klasifikasi* | *Categorical: CNN vs RF* | *Nominal* | *—* |
-| | DV | | | | |
-| | CV | | | | |
+| PEOU              | IV   | Kemudahan penggunaan | Skor Likert 1-5 | Ordinal      | Skor   |
+| PU                | IV   | Kegunaan aplikasi    | Skor Likert 1-5 | Ordinal      | Skor   |
+| Kepuasan Pengguna | DV   | Kepuasan pengguna    | Skor Likert 1-5 | Ordinal      | Skor   |
+| Lama penggunaan   | CV   | Pengalaman pengguna  | Lama penggunaan | Ratio        | Bulan  |
 
-**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [ ] Tidak
-> Jika ya, di mana? ____________________________________
+**Apakah ada lompatan logis dalam rantai?**  Tidak
+
+> Karena semua konsep abstrak telah diterjemahkan menjadi variabel dan metrik yang dapat diukur secara langsung melalui kuesioner dan data penggunaan.
 
 ---
 
@@ -106,15 +109,16 @@ Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Representative | *Contoh: 4 — F1-Score mewakili keseimbangan precision-recall* | |
-| Sensitive | | |
-| Feasible | | |
+| Representative | 5          | Skala Likert secara langsung mengukur persepsi kepuasan pengguna                |
+| Sensitive      | 4          | Skala 1-5 cukup mampu membedakan tingkat kepuasan, meskipun tidak sangat detail |
+| Feasible       | 5          | Mudah dikumpulkan melalui kuesioner tanpa biaya besar                           |
 
-**Apakah perlu secondary metric?** [ ] Ya / [ ] Tidak
-> Jika ya, apa dan mengapa? _____________________________
+**Apakah perlu secondary metric?** Ya 
+
+> Jika ya, apa dan mengapa? Secondary metric: jumlah penggunaan aplikasi (frekuensi penggunaan) Alasan: untuk mendukung data kepuasan dengan perilaku nyata pengguna
 
 **Contoh kasus ceiling effect untuk metrik ini:**
-> ___________________________________________________
+> Jika sebagian besar responden memberikan nilai 5 (sangat puas), maka metrik tidak mampu membedakan variasi kepuasan secara detail.
 
 ---
 
@@ -124,10 +128,10 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 
 | Dimensi | Pertanyaan | Jawaban | Strategi Mitigasi |
 |---------|-----------|---------|------------------|
-| Completeness | *Apakah semua data point terkumpul?* | | |
-| Consistency | *Apakah ada kontradiksi internal?* | | |
-| Validity | *Apakah benar-benar mengukur yang dimaksud?* | | |
-| Representativeness | *Apakah sampel mewakili populasi target?* | | |
+| Completeness | Apakah semua data point terkumpul?| Tidak selalu | Memastikan semua responden mengisi seluruh pertanyaan |
+| Consistency | Apakah ada kontradiksi internal? | Mungkin ada | Validasi jawaban dan cek inkonsistensi      |
+| Validity | Apakah benar-benar mengukur yang dimaksud? | Ya | Menggunakan indikator TAM yang sudah terbukti |
+| Representativeness | Apakah sampel mewakili populasi target? | Belum sepenuhnya | Menambah jumlah responden dan variasi pengguna|
 
 ---
 
@@ -136,5 +140,5 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 > Mengapa memilih metrik setelah melihat data dianggap p-hacking? Apa bedanya dengan eksplorasi data yang sah?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+
+> Memilih metrik setelah melihat data dianggap sebagai p-hacking karena peneliti dapat secara tidak sengaja memilih metrik yang menghasilkan hasil yang signifikan, sehingga bias dan tidak objektif. Hal ini berbeda dengan eksplorasi data yang sah, di mana peneliti tetap melaporkan hasil secara transparan tanpa mengklaim sebagai hasil utama penelitian.
