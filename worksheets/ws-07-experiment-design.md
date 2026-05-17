@@ -68,36 +68,37 @@ Ancaman validitas harus diidentifikasi **sebelum** eksperimen dan mitigasinya di
 ```
 EXPERIMENT DESIGN
 
-Research Question : ____________________
-Hypothesis        : ____________________
-Tipe Eksperimen   : [ ] Comparison  [ ] Ablation  [ ] Parameter
+Research Question : Apakah Perceived Ease of Use (PEOU) dan Perceived Usefulness (PU) dari teknologi Artificial Intelligence pada aplikasi Duolingo berpengaruh signifikan terhadap kepuasan pengguna?
+Hypothesis        : H₀ = PEOU dan PU tidak berpengaruh signifikan terhadap kepuasan pengguna Duolingo.
+H₁ = PEOU dan PU berpengaruh signifikan terhadap kepuasan pengguna Duolingo.
+Tipe Eksperimen   : [ ✓ ] Comparison  [ ] Ablation  [ ] Parameter
 
 Kondisi Eksperimen:
 | Kondisi | Deskripsi | IV Value | CV Settings |
 |---------|-----------|----------|-------------|
-| Control |           |          |             |
-| Treatment |         |          |             |
+| Control | Model TAM standar tanpa fokus AI | PEOU & PU umum | Skala Likert 1-5, responden pengguna aplikasi belajar bahasa, metode analisis regresi |
+| Treatment |Model TAM pada fitur AI Duolingo |PEOU & PU berbasis AI| Skala Likert 1-5, responden pengguna Duolingo, metode analisis regresi |
 
 Fairness Checklist:
-  [ ] Dataset identik untuk semua kondisi
-  [ ] Preprocessing setara
-  [ ] Tuning effort setara
-  [ ] Environment identik
-  [ ] Metrik evaluasi sama
+  [ ✓ ] Dataset identik untuk semua kondisi
+  [ ✓ ] Preprocessing setara
+  [ ✓ ] Tuning effort setara
+  [ ✓ ] Environment identik
+  [ ✓ ] Metrik evaluasi sama
 
 Threat Analysis:
 | Threat Type | Ancaman Spesifik | Mitigasi |
 |-------------|-----------------|----------|
-| Internal    |                 |          |
-| External    |                 |          |
-| Construct   |                 |          |
-| Conclusion  |                 |          |
+| Internal    | Jawaban responden tidak konsisten |Validasi dan pengecekan jawaban kuesioner|
+| External    |Sampel hanya berasal dari pengguna tertentu| Menambah variasi responden |
+| Construct   |Pertanyaan kuesioner tidak merepresentasikan konsep TAM|Menggunakan indikator TAM dari penelitian terdahulu|
+| Conclusion  | Jumlah responden terlalu sedikit |enentukan minimal jumlah sampel sebelum eksperimen 
 
 Statistical Plan:
-  Uji statistik   : ____________________
-  Justifikasi      : ____________________
-  Alpha            : ____________________
-  Effect size min  : ____________________
+  Uji statistik   : Regresi linear dan uji t
+  Justifikasi      : Digunakan untuk melihat pengaruh variabel independen terhadap variabel dependen
+  Alpha            : 0.05
+  Effect size min  : 0.3
 ```
 
 ---
@@ -106,13 +107,13 @@ Statistical Plan:
 
 Susun desain eksperimen berdasarkan RQ, variabel, dan sistem dari WS-04 sampai WS-06.
 
-**RQ:** __________________________________________________
-**Tipe eksperimen:** [ ] Comparison / [ ] Ablation / [ ] Parameter
+**RQ:** Apakah PEOU dan PU dari teknologi AI pada aplikasi Duolingo berpengaruh terhadap kepuasan pengguna?
+**Tipe eksperimen:** [ ✓ ] Comparison / [ ] Ablation / [ ] Parameter
 
 | Kondisi | Deskripsi | IV Value | CV Settings |
 |---------|-----------|----------|-------------|
-| Control | *Contoh: RF baseline dari literatur* | *RF* | *Dataset X, 80:20 split, seed 42* |
-| Treatment | | | |
+| Control | Pengukuran TAM standar| PEOU & PU umum | Skala Likert, metode analisis sama |
+| Treatment | Pengukuran TAM berbasis fitur AI Duolingo | PEOU & PU AI | Skala Likert, metode analisis sama |
 
 ---
 
@@ -122,15 +123,14 @@ Evaluasi apakah desain eksperimen di Latihan 1 sudah fair.
 
 | Kriteria | Status | Detail |
 |----------|--------|--------|
-| Dataset identik | *Contoh: ✅ — sama-sama pakai CIC-MalMem-2022* | |
-| Preprocessing setara | | |
-| Tuning effort setara | | |
-| Environment identik | | |
-| Metrik evaluasi sama | | |
+| Dataset identik |✅|Semua data berasal dari kuesioner pengguna aplikasi pembelajaran bahasa|
+| Preprocessing setara |✅| Semua jawaban diproses dengan metode yang sama |
+| Tuning effort setara |✅|Analisis statistik dilakukan dengan perlakuan yang sama |
+| Environment identik |✅| Pengumpulan data dilakukan pada platform dan kondisi yang sama |
+| Metrik evaluasi sama |✅| Semua variabel menggunakan skala Likert |
 
-**Ada yang tidak fair?** [ ] Ya / [ ] Tidak
-> Jika ya, bagaimana cara memperbaikinya? ________________
-
+**Ada yang tidak fair?** [✓ ] Tidak
+> Semua kondisi eksperimen menggunakan dataset, metode analisis, dan metrik yang sama sehingga tidak ada perlakuan yang berbeda secara tidak adil.
 ---
 
 ## Latihan 3 — Threat Analysis
@@ -139,14 +139,14 @@ Identifikasi ancaman validitas untuk desain eksperimen ini.
 
 | Threat Type | Ancaman Spesifik | Mitigasi |
 |-------------|-----------------|----------|
-| Internal | *Contoh: Data leakage antara train-test* | *Contoh: Gunakan stratified split, validasi tidak ada overlap* |
-| External | | |
-| Construct | | |
-| Conclusion | | |
+| Internal | Bias jawaban responden | Membuat pertanyaan yang jelas dan tidak ambigu |
+| External | Hasil tidak dapat digeneralisasi ke semua pengguna aplikasi belajar | Menambah jumlah dan variasi responden |
+| Construct | Variabel TAM tidak terukur dengan tepat | Menggunakan indikator dari penelitian sebelumnya |
+| Conclusion | Kesimpulan statistik kurang kuat akibat sampel kecil | Menentukan jumlah minimal responden |
 
-**Ancaman mana yang paling sulit dimitigasi?** _____________
+**Ancaman mana yang paling sulit dimitigasi?** External validity
 **Mengapa?**
-> ___________________________________________________
+> Karena perilaku dan persepsi pengguna dapat berbeda-beda tergantung usia, pengalaman, dan kebiasaan penggunaan aplikasi sehingga hasil penelitian belum tentu berlaku untuk semua populasi pengguna.
 
 ---
 
@@ -155,6 +155,6 @@ Identifikasi ancaman validitas untuk desain eksperimen ini.
 > Sebuah paper melaporkan "metode kami mengalahkan semua baseline." Apa 3 pertanyaan pertama yang harus diajukan untuk mengevaluasi klaim ini?
 
 **Jawaban:**
-1. ___________________________________________________
-2. ___________________________________________________
-3. ___________________________________________________
+1. Apakah semua baseline diuji pada kondisi dan dataset yang sama?
+2. Apakah metrik evaluasi yang digunakan sama dan relevan?
+3. Apakah metode pembanding mendapatkan perlakuan eksperimen yang adil?
