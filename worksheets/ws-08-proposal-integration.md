@@ -73,31 +73,31 @@ Jika ada lompatan (section B tidak menjawab pertanyaan section A), red thread pu
 PROPOSAL INTEGRATION CHECKLIST
 
 Koneksi Vertikal (Flow Atas-Bawah):
-  [ ] Problem → Gap: masalah terdokumentasi di literatur
-  [ ] Gap → RQ: pertanyaan menjawab gap spesifik
-  [ ] RQ → Hypothesis: hipotesis memprediksi jawaban
-  [ ] Hypothesis → Metric: metrik mengukur variabel dalam hipotesis
-  [ ] Metric → System: komponen sistem menghasilkan/mengukur metrik
-  [ ] System → Experiment: desain eksperimen menggunakan sistem
+  [✓] Problem → Gap: masalah terdokumentasi di literatur
+  [✓] Gap → RQ: pertanyaan menjawab gap spesifik
+  [✓] RQ → Hypothesis: hipotesis memprediksi jawaban
+  [✓] Hypothesis → Metric: metrik mengukur variabel dalam hipotesis
+  [✓] Metric → System: komponen sistem menghasilkan/mengukur metrik
+  [✓] System → Experiment: desain eksperimen menggunakan sistem
 
 Koneksi Horizontal (Konsistensi):
-  [ ] Istilah sama di semua bagian
-  [ ] Variabel di RQ = variabel di hipotesis = metrik di desain
-  [ ] Scope tidak berubah dari masalah ke eksperimen
+  [✓] Istilah sama di semua bagian
+  [✓] Variabel di RQ = variabel di hipotesis = metrik di desain
+  [✓] Scope tidak berubah dari masalah ke eksperimen
 
 Cognitive Trap Checklist:
-  [ ] Tidak ada paragraf "promosi" di pendahuluan (hanya data & gap)
-  [ ] Metodologi disesuaikan ke RQ, bukan copy-paste textbook
-  [ ] Timeline sudah ditambah buffer 30-50% dari estimasi awal
-  [ ] Proposal mengakui kemungkinan H0 tidak ditolak (honest uncertainty)
-  [ ] Tidak ada klaim "pasti berhasil" atau "meningkatkan signifikan"
+  [✓] Tidak ada paragraf "promosi" di pendahuluan (hanya data & gap)
+  [✓] Metodologi disesuaikan ke RQ, bukan copy-paste textbook
+  [✓] Timeline sudah ditambah buffer 30-50% dari estimasi awal
+  [✓] Proposal mengakui kemungkinan H0 tidak ditolak (honest uncertainty)
+  [✓] Tidak ada klaim "pasti berhasil" atau "meningkatkan signifikan"
 
 Rubrik Self-Assessment:
 | Kriteria     | 1 (Lemah)                                        | 2 (Cukup)                                     | 3 (Baik)                                           | Skor |
 |------------- |--------------------------------------------------|-----------------------------------------------|----------------------------------------------------|------|
-| Koherensi    | >2 koneksi vertikal terputus                     | 1-2 koneksi lemah, argumen masih bisa diikuti | Semua 6 koneksi terhubung, red thread jelas        |      |
-| Specificity  | Variabel/metrik masih abstrak, tidak ada angka   | Sebagian metrik terdefinisi numerik           | Semua metrik + threshold + unit pengukuran jelas   |      |
-| Feasibility  | Timeline >6 bulan tanpa memperhitungkan sumber   | Timeline 3-6 bulan dengan asumsi tertentu     | Timeline 1-3 bulan realistis dengan rencana detail |      |
+| Koherensi    | >2 koneksi vertikal terputus                     | 1-2 koneksi lemah | Semua koneksi terhubung   |  3   |
+| Specificity  | Variabel/metrik masih abstrak, tidak ada angka   | Sebagian metrik jelas           | Semua metrik dan variabel jelas   |   3   |
+| Feasibility  | Timeline tidak realistis   | Timeline cukup realistis     | Timeline realistis dengan rencana detail |  3    |
 | Rigor        | Baseline tidak jelas atau straw man              | 1-2 baseline dengan justifikasi partial       | 2+ baseline SOTA + justifikasi pemilihan lengkap   |      |
 ```
 
@@ -109,13 +109,13 @@ Kumpulkan hasil dari WS-02 sampai WS-07 menjadi satu ringkasan proposal.
 
 | Komponen | Sumber | Isi (1-2 kalimat) |
 |----------|--------|-------------------|
-| Problem Statement | WS-02 | *Contoh: Sistem rekomendasi memiliki akurasi tinggi (RMSE 0.87) tetapi satisfaction score rendah (45/100). Gap antara metrik teknis dan kepuasan pengguna belum diteliti.* |
-| Gap | WS-03 | *Contoh: Tidak ada studi yang mengintegrasikan collaborative filtering dengan user-context signals untuk meningkatkan satisfaction.* |
-| RQ | WS-04 | *Contoh: Apakah penambahan context-aware signals pada collaborative filtering meningkatkan satisfaction score tanpa menurunkan RMSE?* |
-| Hipotesis | WS-04 | *Contoh: H₁: Sistem CF+context menghasilkan satisfaction ≥ 70/100 dengan RMSE ≤ 0.90 dibanding baseline CF murni.* |
-| Variabel & Metrik | WS-05 | *Contoh: IV = jenis sistem (CF vs CF+context); DV = satisfaction score (skala 0-100) + RMSE (regresi).* |
-| Sistem | WS-06 | |
-| Desain Eksperimen | WS-07 | |
+| Problem Statement | WS-02 | Penggunaan Artificial Intelligence pada aplikasi pembelajaran bahasa semakin meningkat, tetapi belum diketahui secara jelas bagaimana pengaruh fitur AI terhadap kepuasan pengguna. Banyak penelitian hanya membahas efektivitas AI atau usability aplikasi secara terpisah. |
+| Gap | WS-03 | Penelitian sebelumnya belum banyak menggabungkan Artificial Intelligence dengan model TAM untuk mengukur kepuasan pengguna secara spesifik pada aplikasi pembelajaran bahasa seperti Duolingo. |
+| RQ | WS-04 | Apakah penggunaan fitur Artificial Intelligence pada aplikasi Duolingo berpengaruh signifikan terhadap kepuasan pengguna berdasarkan variabel Perceived Ease of Use (PEOU) dan Perceived Usefulness (PU)? |
+| Hipotesis | WS-04 | H₁: PEOU dan PU pada fitur AI Duolingo berpengaruh positif terhadap kepuasan pengguna. H₀: PEOU dan PU tidak berpengaruh signifikan terhadap kepuasan pengguna. |
+| Variabel & Metrik | WS-05 | IV = PEOU dan PU; DV = kepuasan pengguna; CV = usia pengguna, durasi penggunaan aplikasi, dan perangkat yang digunakan. Metrik menggunakan skala Likert 1–5 pada kuesioner TAM. |
+| Sistem | WS-06 | Sistem penelitian berupa penyebaran kuesioner berbasis Google Form kepada pengguna Duolingo. Data diolah menggunakan analisis statistik untuk melihat hubungan antara variabel TAM dan kepuasan pengguna. |
+| Desain Eksperimen | WS-07 | Penelitian menggunakan comparison study antara pengguna dengan persepsi AI tinggi dan rendah berdasarkan hasil kuesioner TAM. Semua responden menggunakan konteks aplikasi yang sama agar pengukuran lebih adil dan konsisten. |
 
 ---
 
@@ -125,20 +125,21 @@ Verifikasi 6 koneksi kritis. Isi dengan merujuk tabel di Latihan 1.
 
 | Koneksi | Status | Bukti |
 |---------|--------|-------|
-| Problem → Gap | *Contoh: ✅ — gap muncul dari 15 paper Bab 3 yang tidak ada yang mengkombinasikan CF + context untuk satisfaction* | |
-| Gap → RQ | *Contoh: ✅ — RQ langsung menanyakan apakah CF+context meningkatkan satisfaction* | |
-| RQ → Hypothesis | *Contoh: ✅ — H₁ memprediksi satisfaction ≥ 70 dengan threshold RMSE ≤ 0.90* | |
-| Hypothesis → Metric | | |
-| Metric → System | | |
-| System → Experiment | | |
+| Problem → Gap | ✅ - Terhubung | Permasalahan pada WS-02 menunjukkan bahwa belum diketahui secara jelas pengaruh fitur Artificial Intelligence terhadap kepuasan pengguna aplikasi pembelajaran bahasa. Pada WS-03, hasil telaah lima jurnal menunjukkan bahwa penelitian sebelumnya masih memisahkan pembahasan AI, TAM, dan kepuasan pengguna sehingga muncul research gap. |
+| Gap → RQ | ✅ — terhubung | Research Question pada WS-04 secara langsung menjawab gap tersebut, yaitu meneliti pengaruh Artificial Intelligence pada aplikasi Duolingo terhadap kepuasan pengguna menggunakan model Technology Acceptance Model (TAM). |
+| RQ → Hypothesis | ✅ — terhubung | Hipotesis H₁ menyatakan bahwa Perceived Ease of Use (PEOU) dan Perceived Usefulness (PU) berpengaruh positif terhadap kepuasan pengguna, sedangkan H₀ menyatakan tidak ada pengaruh yang signifikan. Hipotesis ini merupakan jawaban yang diprediksi dari RQ. |
+| Hypothesis → Metric | ✅ — terhubung | Variabel PEOU, PU, dan kepuasan pengguna diukur menggunakan skor kuesioner skala Likert 1–5 sehingga hipotesis dapat diuji secara kuantitatif. |
+| Metric → System | ✅ — terhubung | Sistem penelitian berupa kuesioner Google Form yang menghasilkan data numerik untuk setiap indikator PEOU, PU, dan kepuasan pengguna. Data tersebut kemudian dianalisis menggunakan metode statistik. |
+| System → Experiment | ✅ — terhubung | Desain eksperimen menggunakan data hasil kuesioner sebagai instrumen utama untuk menguji hubungan antara variabel independen (PEOU dan PU) terhadap variabel dependen (kepuasan pengguna) pada kondisi yang sama untuk seluruh responden. |
 
-**Koneksi mana yang paling lemah?** _______________________
+**Koneksi mana yang paling lemah?**  
+Problem → Gap
+
 **Bagaimana cara memperkuatnya?**
-> ___________________________________________________
-
-**Konsistensi horizontal — apakah istilah dan scope konsisten?** [ ] Ya / [ ] Tidak
-> Jika tidak, di bagian mana terjadi inkonsistensi? _________
-
+> Menambahkan lebih banyak jurnal Indonesia yang secara khusus membahas Artificial Intelligence pada aplikasi pembelajaran bahasa sehingga hubungan antara masalah penelitian dan research gap menjadi semakin kuat dan didukung oleh lebih banyak bukti ilmiah.
+> 
+**Konsistensi horizontal — apakah istilah dan scope konsisten?** [✓] Ya / [ ] Tidak
+>Istilah Artificial Intelligence (AI), Technology Acceptance Model (TAM), Perceived Ease of Use (PEOU), Perceived Usefulness (PU), dan kepuasan pengguna digunakan secara konsisten mulai dari latar belakang, research gap, research question, hipotesis, variabel penelitian, hingga desain eksperimen. Ruang lingkup penelitian juga tetap berfokus pada aplikasi Duolingo tanpa berubah pada bagian metodologi maupun eksperimen.
 ---
 
 ## Latihan 3 — Rubrik Self-Assessment
@@ -147,24 +148,28 @@ Evaluasi proposal mini menggunakan rubrik.
 
 | Kriteria | Skor (1-3) | Justifikasi |
 |----------|-----------|-------------|
-| Koherensi | *Contoh: 2 — koneksi gap→RQ masih lemah karena gap belum cukup narrow* | |
-| Specificity | *Contoh: 3 — metrik (satisfaction 0-100, RMSE) sudah terdefinisi numerik* | |
-| Feasibility | | |
-| Rigor | | |
+| Koherensi | 3 | Alur proposal sudah konsisten mulai dari identifikasi masalah, research gap, research question, hipotesis, variabel, sistem, hingga desain eksperimen. Setiap bagian saling berkaitan dan membentuk satu alur penelitian yang utuh. |
+| Specificity | 3 | Variabel penelitian (PEOU, PU, dan kepuasan pengguna), metrik pengukuran (skala Likert 1–5), instrumen (kuesioner TAM), serta objek penelitian (pengguna Duolingo) telah dijelaskan secara spesifik dan konsisten. |
+| Feasibility | 3 | Penelitian dapat dilaksanakan dalam waktu 1–3 bulan menggunakan kuesioner online kepada pengguna Duolingo. Instrumen, metode analisis, serta jadwal penelitian sudah realistis dan sesuai dengan kemampuan penelitian tingkat mahasiswa. |
+| Rigor | 2 | Proposal telah menggunakan dua baseline dari penelitian sebelumnya (model TAM dan analisis sentimen) serta didukung lima jurnal sebagai dasar research gap. Namun, jumlah referensi masih dapat ditambah agar landasan teori dan pembahasan menjadi lebih kuat. |
 
-**Skor total:** _____ / 12
+**Skor total:** 11 / 12
 
-**Apakah proposal siap untuk fase eksekusi?** [ ] Ya / [ ] Belum
-> Jika belum, apa yang perlu diperbaiki? __________________
+**Apakah proposal siap untuk fase eksekusi?**  Ya 
 
+**Alasan:**
+> Proposal sudah memiliki hubungan yang jelas antara masalah, research gap, research question, hipotesis, variabel, metode, hingga desain eksperimen. Instrumen penelitian dan teknik analisis juga telah ditentukan sehingga penelitian siap memasuki tahap pengumpulan data. Perbaikan yang masih dapat dilakukan adalah menambah referensi terbaru dan memperluas jumlah responden agar hasil penelitian lebih kuat dan mudah digeneralisasikan.
 ---
 
 ## Refleksi
 
 > Dari seluruh proses WS-01 sampai WS-08, bagian mana yang paling mudah dan paling sulit? Mengapa? Apa yang akan dilakukan berbeda jika mengulang dari awal?
 
-**Bagian termudah:** ____________________________________
-**Bagian tersulit:** ____________________________________
+**Bagian termudah:** 
+> Menentukan topik dan menyusun variabel penelitian karena topik AI dan aplikasi pembelajaran bahasa cukup dekat dengan penggunaan sehari-hari.
+
+**Bagian tersulit:** 
+> Mencari research gap dan menyusun hubungan antar bagian proposal agar tetap konsisten dari awal sampai akhir.
+
 **Yang akan dilakukan berbeda:**
-> ___________________________________________________
-> ___________________________________________________
+> Jika mengulang dari awal, pencarian jurnal akan dilakukan lebih sistematis sejak awal agar proses menemukan gap lebih mudah. Selain itu, penulisan proposal akan langsung disusun paralel dengan pengerjaan worksheet supaya revisi tidak terlalu banyak.
