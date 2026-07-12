@@ -66,33 +66,33 @@ Data leakage terjadi ketika informasi dari test set "bocor" ke preprocessing:
 ```
 PREPROCESSING LOG
 
-Dataset           : ____________________
-Jumlah data awal  : ____________________
+Dataset           : Kuesioner TAM Duolingo (Control & Treatment), gabungan seluruh gelombang WS-10/11
+Jumlah data awal  : 143 responden (58 Control, 85 Treatment)
 
 Cleaning:
-| Masalah | Jumlah Kasus | Penanganan | Justifikasi |
-|---------|-------------|------------|-------------|
-| Missing |             |            |             |
-| Duplikat|             |            |             |
-| Error   |             |            |             |
+| Masalah  | Jumlah Kasus     | Penanganan            | Justifikasi |
+|----------|------------------|------------------------|-------------|
+| Missing  | 5 dari 143 (3.5%)| Listwise deletion      | < 5%, item terlewat tersebar acak (MCAR), bukan pola sistematis |
+| Duplikat | 3 dari 143 (2.1%)| Verifikasi lalu hapus (simpan submission pertama) | Link kuesioner sempat tersebar ulang, responden yang sama mengisi 2x |
+| Error    | 4 dari 143 (2.8%)| Standardisasi format (kolom "lama penggunaan" ditulis teks, dikonversi ke angka bulan) | Tidak menghilangkan informasi, hanya standardisasi tipe data |
 
 Transformation:
 | Transformasi | Variabel | Detail | Alasan |
-|-------------|----------|--------|--------|
-|             |          |        |        |
+|--------------|----------|--------|--------|
+| Konversi ke numerik | Lama penggunaan aplikasi | "6 bulan" → 6 | Dibutuhkan sebagai variabel kontrol (CV) numerik dalam regresi |
 
 Normalization:
-  Metode    : ____________________
-  Alasan    : ____________________
-  Parameter : (dihitung dari: training set / seluruh data)
+  Metode    : Robust scaling, hanya untuk variabel kontrol "lama penggunaan aplikasi"
+  Alasan    : Skor PEOU, PU, Kepuasan Pengguna sudah bounded (skala Likert 1-5) dan dipakai apa adanya; lama penggunaan punya rentang lebar (1-72 bulan) dengan sedikit outlier (pengguna lama), sehingga robust scaling lebih sesuai daripada min-max
+  Parameter : dihitung dari seluruh data yang dipakai analisis (bukan train/test split — penelitian ini bersifat deskriptif-inferensial/regresi, bukan predictive modeling, sehingga tidak ada pemisahan train-test)
 
 Leakage Check:
-  [ ] Parameter normalisasi dari training set saja
-  [ ] Tidak ada informasi test set dalam preprocessing
-  [ ] Cross-validation dilakukan setelah split
+  [✓] Parameter normalisasi dihitung dari seluruh data analisis (tidak relevan konsep training/test split karena bukan predictive modeling)
+  [✓] Tidak ada informasi yang "bocor" dari proses lain ke preprocessing
+  [ ] Cross-validation dilakukan setelah split — tidak berlaku, desain penelitian tidak menggunakan train-test split
 
-Jumlah data akhir : ____________________
-Script tersedia   : [ ] Ya → path: ____ | [ ] Belum
+Jumlah data akhir : 135 responden (55 Control, 80 Treatment)
+Script tersedia   : [ ] Belum (masih diolah manual di Excel/SPSS)
 ```
 
 ---
@@ -103,14 +103,14 @@ Periksa dataset Anda (atau dataset contoh) dan dokumentasikan masalah yang ditem
 
 | Masalah | Jumlah Kasus | Penanganan | Justifikasi |
 |---------|-------------|------------|-------------|
-| *Contoh: Missing di kolom "label"* | *12 dari 500 (2.4%)* | *Listwise deletion* | *< 5%, distribusi random (MCAR)* |
-| | | | |
-| | | | |
+| Missing di beberapa item kuesioner | 5 dari 143 (3.5%) | Listwise deletion | Di bawah 5%, tersebar acak antar item (MCAR) |
+| Duplikat submission | 3 dari 143 (2.1%) | Verifikasi (cek timestamp/identitas), hapus submission kedua | Kuesioner disebar ulang di grup yang sama, sebagian responden mengisi dua kali |
+| Error format kolom "lama penggunaan" | 4 dari 143 (2.8%) | Standardisasi ke format numerik (bulan) | Menjaga informasi tetap terpakai, bukan dihapus |
 | | | | |
 
-**Jumlah data sebelum cleaning:** ____
-**Jumlah data setelah cleaning:** ____
-**Persentase data yang hilang/berubah:** ____%
+**Jumlah data sebelum cleaning:** 143
+**Jumlah data setelah cleaning:** 135
+**Persentase data yang hilang/berubah:** 56%
 
 ---
 
@@ -120,16 +120,18 @@ Tentukan apakah data Anda perlu normalisasi, dan jika ya, metode apa yang tepat.
 
 | Variabel | Range Asli | Distribusi | Outlier? | Metode Normalisasi | Alasan |
 |----------|-----------|-----------|----------|-------------------|--------|
-| *Contoh: response_time* | *0.1 – 45.2s* | *Right-skewed* | *Ya (45.2s)* | *Robust scaling* | *Ada outlier, perlu robust* || *Contoh: accuracy_score* | *0.72 – 0.95* | *Normal, narrow* | *Tidak* | *Tidak perlu* | *Sudah dalam [0,1], metode berbasis distance tidak digunakan* || | | | | | |
+| Skor Kepuasan Pengguna | 1-5 | Sedikit menceng kiri (terkonsentrasi di skor 4) | Tidak signifikan | Tidak perlu | Sudah bounded dalam skala Likert, dipakai sesuai desain kuesioner |
+| Skor PEOU / PU | 1 – 5 | Mendekati normal| *Tidak* | *Tidak perlu* | Sama seperti Kepuasan Pengguna — skala sudah standar |
+| Lama penggunaan aplikasi (bulan) | 1 – 72 | Right-skewed | Ya (beberapa pengguna >48 bulan) | Robust scaling | Rentang lebar dan ada outlier ringan, robust scaling (median & IQR) lebih tahan terhadap outlier dibanding min-max |
 | | | | | | |
 
-**Apakah normalisasi diperlukan?** [ ] Ya / [ ] Tidak
-**Justifikasi:**
-> ___________________________________________________
+**Apakah normalisasi diperlukan?**  Ya 
 
+**Justifikasi:**
+> Normalisasi hanya diperlukan untuk variabel kontrol "lama penggunaan aplikasi" karena rentang dan skalanya berbeda jauh dari skor Likert. Variabel utama (PEOU, PU, Kepuasan Pengguna) tidak dinormalisasi karena sudah bounded dan menormalisasinya justru mengubah makna skor Likert yang dimaksudkan apa adanya — sesuai prinsip minimal distortion.
 **Leakage check:**
-- [ ] Parameter dihitung dari training set saja
-- [ ] Normalisasi diterapkan setelah train-test split
+- [✓] Parameter dihitung dari seluruh data analisis (tidak ada train-test split   karena desain bukan predictive modeling)
+- Normalisasi diterapkan setelah train-test split — tidak berlaku untuk desain     penelitian ini
 
 ---
 
@@ -140,16 +142,17 @@ Buat ringkasan preprocessing lengkap — dokumentasi yang cukup bagi orang lain 
 ```
 PREPROCESSING SUMMARY
 
-1. Dataset: ____________________
-2. Data awal: ____ records, ____ features
+1. Dataset: Kuesioner TAM Duolingo (Control & Treatment)
+2. Data awal: 143 records, 4 variabel utama (PEOU, PU, Kepuasan Pengguna, Lama Penggunaan) + identitas
 3. Cleaning:
-   - Missing values: ____ kasus, metode: ____
-   - Duplikat: ____ kasus, tindakan: ____
-   - Error: ____ kasus, tindakan: ____
-4. Transformation: ____________________
-5. Normalisasi: ____ (metode), parameter dari ____
-6. Data akhir: ____ records, ____ features
-7. Leakage check: [ ] Lulus / [ ] Ada masalah
+   - Missing values: 5 kasus, metode: listwise deletion
+   - Duplikat: 3 kasus, tindakan: verifikasi lalu hapus submission kedua
+   - Error: 4 kasus, tindakan: standardisasi format ke numerik
+4. Transformation: konversi kolom "lama penggunaan" dari teks ke angka (bulan)
+5. Normalisasi: robust scaling, hanya untuk "lama penggunaan aplikasi"; parameter dihitung dari seluruh data (tidak ada train-test split)
+6. Data akhir: 135 records (55 Control, 80 Treatment), 4 variabel utama
+7. Leakage check: [✓] Lulus (dengan catatan konsep leakage kurang relevan untuk desain non-predictive ini)
+
 ```
 
 ---
@@ -158,5 +161,4 @@ PREPROCESSING SUMMARY
 
 > Apakah Anda pernah melakukan normalisasi "karena biasa dilakukan" tanpa mempertimbangkan apakah benar-benar diperlukan? Apa risiko over-preprocessing?
 
-> ___________________________________________________
-> ___________________________________________________
+>Saat menyusun Latihan 2, sempat terpikir untuk menormalisasi semua variabel termasuk skor PEOU, PU, dan Kepuasan Pengguna, karena "biasanya" data numerik dinormalisasi sebelum dianalisis. Setelah dipikir ulang, itu tidak diperlukan dan justru berisiko — menormalisasi skor Likert yang sudah bounded 1-5 bisa mendistorsi makna aslinya (misalnya perbedaan antara skor 3 dan 4 pada skala asli menjadi tidak lagi jelas artinya setelah diubah ke rentang lain). Risiko over-preprocessing di sini adalah kehilangan interpretasi langsung terhadap skala Likert yang justru menjadi kekuatan utama kuesioner TAM, hanya demi mengikuti kebiasaan teknis yang sebenarnya tidak relevan untuk jenis data ini.
