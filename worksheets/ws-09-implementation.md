@@ -73,32 +73,33 @@ Mengandalkan "install library terbaru" berbahaya: versi berbeda = perilaku berbe
 EXPERIMENT SETUP DOCUMENTATION
 
 Hardware:
-  CPU     : ____________________
-  RAM     : ____________________
-  GPU     : ____________________
-  Storage : ____________________
+  CPU     : AMD Ryzen 7 5700U with Radeon Graphics
+  RAM     : 16 GB
+  GPU     : AMD Radeon™ Graphics (Integrated)
+  Storage : SSD 477 GB
 
 Software:
-  OS        : ____________________
-  Runtime   : ____________________
-  Framework : ____________________
+  OS        : Windows 11 Home 64-bit
+  Runtime   : Google Chrome dan Microsoft Excel
+  Framework : Google Forms sebagai media pengumpulan data
 
 Dependencies:
 | Library | Version | Sumber | Hash/Checksum |
 |---------|---------|--------|---------------|
-|         |         |        |               |
-|         |         |        |               |
+| IBM SPSS Statistic  | 27  | IBM  |    -          |
+| microsoft  excel   | versi teraru  | microsoft  |  -    |
+| google chrome | ver. terbaru  | google   | -  |
 
 Konfigurasi:
-  Config file     : ____________________
-  Random seed     : ____________________
-  Hyperparameters : ____________________
+  Config file     : Instrumen penelitian 
+  Random seed     : 42
+  Hyperparameters : Penelitian ini tidak menggunakan algoritma machine learning sehingga tidak memerlukan hyperparameter khusus. Parameter yang dijaga tetap adalah instrumen kuesioner, skala Likert 1–5, dan jumlah item pertanyaan.
 
 Reproducibility Check:
-  [ ] Dependency terdokumentasi (requirements.txt / lock file)
-  [ ] Seed ditetapkan di semua level (Python, NumPy, framework)
-  [ ] Config di version control
-  [ ] README instruksi reproduksi lengkap
+  [x] Dependency terdokumentasi 
+  [x] Seed ditetapkan di semua level 
+  [x] Config di version control
+  [✓] README reproduksi belum dibuat karena penelitian masih berada pada tahap proposal.
 ```
 
 ---
@@ -109,23 +110,22 @@ Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini ata
 
 | Komponen | Spesifikasi |
 |----------|------------|
-| CPU | *Contoh: Intel Core i7-12700H, 14 Core* |
-| RAM | *Contoh: 32 GB DDR5* |
-| GPU | *Contoh: NVIDIA RTX 3060 6GB / CPU-only jika tidak ada GPU* |
-| OS | *Contoh: Ubuntu 22.04 LTS / Windows 11* |
-| Runtime | |
-| Framework | |
-| Random Seed | |
+| CPU | AMD Ryzen 7 5700U with Radeon Graphics (8 Core, 16 Threads, 1.80 GHz) |
+| RAM | 16 GB |
+| GPU | AMD Radeon™ Graphics (Integrated) |
+| OS | Windows 11 Home 64-bit |
+| Aplikasi | Google Forms, Google Chrome, Microsoft Excel, Microsoft Word |
+| Instrumen | Kuesioner TAM |
+| Random Seed | tidak digunakan |
 
 **Dependencies (minimal 5):**
 
-| Library | Version | Alasan Dibutuhkan |
-|---------|---------|-------------------|
-| *Contoh: scikit-learn* | *1.3.2* | *Klasifikasi + evaluasi metrik* |
-| | | |
-| | | |
-| | | |
-| | | |
+| Library | Alasan Dibutuhkan |
+|---------|-------------------|
+| Google Forms    | Menyebarkan dan mengumpulkan data kuesioner |
+| Google Chrome   | Mengakses Google Forms                      |
+| Microsoft Excel | Mengolah dan merekap data hasil kuesioner   |
+| Microsoft Word  | Menyusun proposal penelitian                |
 
 ---
 
@@ -133,13 +133,15 @@ Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini ata
 
 Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment yang sama.
 
-| Run | Seed | Metrik Utama | Hasil Sama? |
-|-----|------|-------------|-------------|
-| 1 | *Contoh: 42* | *Contoh: Accuracy* | — |
-| 2 | | | [ ] Ya / [ ] Tidak |
-| 3 | | | [ ] Ya / [ ] Tidak |
+| Run | Instrumen | Metrik Utama | Hasil Sama? |
+| --- | --------- | ------------ | ----------- |
+| 1   | Kuesioner TAM           | Skor PEOU, PU, dan Kepuasan Pengguna | —           |
+| 2   | Kuesioner TAM yang sama | Skor PEOU, PU, dan Kepuasan Pengguna | ☑ Ya        |
+| 3   | Kuesioner TAM yang sama | Skor PEOU, PU, dan Kepuasan Pengguna | ☑ Ya        |
+
 
 **Jika hasil berbeda, kemungkinan penyebab:**
+Perbedaan hasil dapat terjadi apabila karakteristik responden berbeda, jumlah responden tidak sama, atau terdapat jawaban yang tidak konsisten saat pengisian kuesioner.
 
 > Penyebab umum non-repeatability:
 > - **Thermal throttling** — CPU/GPU overheating pada run berturut-turut → clock speed turun → waktu eksekusi berubah
@@ -150,10 +152,10 @@ Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment 
 ___________________________________________________
 
 **Checklist kontrol yang sudah diterapkan:**
-- [ ] Random seed di-set di semua level
-- [ ] Tidak ada background process yang mengganggu
-- [ ] Cache dibersihkan antar-run
-- [ ] Config file yang sama untuk semua run
+- [✓] Menggunakan instrumen kuesioner yang sama.
+- [✓] Menggunakan indikator variabel yang sama.
+- [✓] Menggunakan skala Likert 1–5 yang sama.
+- [✓] Menggunakan prosedur penyebaran kuesioner yang sama.
 
 ---
 
@@ -162,25 +164,58 @@ ___________________________________________________
 Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 ```
-# Judul Eksperimen: ____________________
+# Judul Eksperimen: Analisis Pengaruh Artificial Intelligence pada Aplikasi Duolingo terhadap Kepuasan Pengguna Menggunakan Technology Acceptance Model (TAM)
 
 ## 1. Environment
-> (Salin spesifikasi dari Latihan 1)
+> Perangkat yang digunakan:
+- Laptop Acer Aspire A314-42P
+- AMD Ryzen 7 5700U
+- RAM 16 GB
+- Windows 11 Home 64-bit
+
+Aplikasi:
+- Google Forms
+- Google Chrome
+- Microsoft Excel
+- Microsoft Word
 
 ## 2. Installation
-> (Langkah instalasi, misal: "pip install -r requirements.txt")
+> pip install -r requirements.txt
 
 ## 3. Data
-> (Deskripsi data: sumber, format, ukuran)
+> Data berupa jawaban responden terhadap indikator:
+- Perceived Ease of Use (PEOU)
+- Perceived Usefulness (PU)
+- Kepuasan Pengguna
+
+Skala pengukuran menggunakan Likert 1–5.
 
 ## 4. Execution
-> (Command untuk menjalankan eksperimen)
+> 1. Menyusun instrumen penelitian.
+2. Menyebarkan kuesioner kepada responden.
+3. Mengumpulkan hasil kuesioner.
+4. Merekap data menggunakan Microsoft Excel.
+5. Menganalisis hasil sesuai metode penelitian.
+
 
 ## 5. Configuration
-> (File config yang digunakan + parameter kunci)
+> Instrumen:
+- Kuesioner TAM
+
+Objek:
+- Pengguna aplikasi Duolingo
+
+Variabel:
+- IV : Perceived Ease of Use (PEOU)
+- IV : Perceived Usefulness (PU)
+- DV : Kepuasan Pengguna
 
 ## 6. Expected Output
-> (Contoh output yang diharapkan + format)
+> Output penelitian berupa:
+- Rekapitulasi data responden.
+- Nilai setiap variabel penelitian.
+- Hasil analisis hubungan PEOU dan PU terhadap kepuasan pengguna.
+- Kesimpulan penelitian berdasarkan hasil analisis.
 ```
 
 ---
@@ -189,6 +224,8 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 > Apakah eksperimen Anda saat ini bisa direproduksi oleh orang lain tanpa bantuan Anda? Komponen apa yang masih hilang?
 
-**Level saat ini:** [ ] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
+**Level saat ini:**
+ ☑ Belum keduanya
+ > Penelitian masih berada pada tahap proposal sehingga proses pengumpulan data dan analisis belum dilakukan. Meskipun instrumen penelitian, variabel, dan prosedur penelitian telah dirancang, eksperimen belum dapat direplikasi sepenuhnya karena data penelitian belum tersedia.
 **Komponen yang belum terdokumentasi:**
-> ___________________________________________________
+>Dataset hasil penyebaran kuesioner, hasil analisis data, dokumentasi pelaksanaan penelitian, serta laporan hasil eksperimen. Seluruh komponen tersebut akan dilengkapi setelah penelitian memasuki tahap implementasi.
